@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iron Spur Equity - Transforming Real Estate Investment</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Lucide Icons for aesthetic vectors -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* Custom Theme Configuration */
+        :root {
+            --primary-bg: #070F2B; /* Deep Sapphire Blue */
+            --secondary-bg: #1B2A4A; /* Slightly lighter blue for cards */
+            --accent-color: #A31F34; /* Strong Crimson */
+            --text-light: #E0E7FF; /* Off-white / light blue */
+            --text-gray: #9CA3AF; /* Light gray */
+            --font-family: 'Inter', sans-serif;
+        }
+        body {
+            font-family: var(--font-family);
+            background-color: var(--primary-bg);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+        .text-accent { color: var(--accent-color); }
+        .bg-accent { background-color: var(--accent-color); }
+        .border-accent { border-color: var(--accent-color); }
+        .hover-lift:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgba(163, 31, 52, 0.3), 0 4px 6px -2px rgba(163, 31, 52, 0.05);
+        }
+        /* Custom Scrollbar for better aesthetic */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-thumb { background: var(--accent-color); border-radius: 4px; }
+        ::-webkit-scrollbar-track { background: var(--secondary-bg); }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-bg': 'var(--primary-bg)',
+                        'secondary-bg': 'var(--secondary-bg)',
+                        'accent': 'var(--accent-color)',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="antialiased">
+
+    <!-- Modal for Bio Details (Hidden by Default) -->
+    <div id="bioModal" class="fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-secondary-bg rounded-xl shadow-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto transform transition duration-300 scale-95 opacity-0" id="modalContent">
+            <div class="p-6 md:p-8">
+                <div class="flex justify-end">
+                    <button onclick="closeModal()" class="text-text-light hover:text-accent focus:outline-none">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                    </button>
+                </div>
+                <div class="text-center mb-6">
+                    <img id="modalImage" src="" alt="Team Member Photo" class="w-24 h-24 object-cover rounded-full mx-auto border-4 border-accent mb-4">
+                    <h2 id="modalName" class="text-3xl font-bold text-text-light"></h2>
+                    <p id="modalTitle" class="text-accent text-lg font-medium"></p>
+                </div>
+                <p id="modalBio" class="text-text-gray whitespace-pre-line"></p>
+            </div>
+        </div>
+    </div>
+    <!-- End Modal -->
+
+
+    <!-- Header / Navigation -->
+    <header class="sticky top-0 z-40 bg-primary-bg/95 backdrop-blur-sm shadow-lg border-b border-secondary-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <!-- Logo & Brand Name -->
+            <div class="flex items-center space-x-3">
+                <!-- UPDATED with New Logo Source -->
+                <img src="uploaded:image.png-71a9d488-25aa-4046-b826-7b07c034b50a" alt="Iron Spur Equity Logo" class="h-8 md:h-10 w-auto">
+                <h1 class="text-xl md:text-2xl font-extrabold text-text-light uppercase tracking-widest hidden sm:block">IRON SPUR EQUITY</h1>
+            </div>
+
+            <!-- CTA Button (Mobile friendly) -->
+            <a href="#contact" class="bg-accent text-white font-semibold py-2 px-4 rounded-full text-sm hover:bg-red-700 transition duration-300 shadow-lg hover-lift">
+                Invest Now
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <!-- 1. Hero Section -->
+        <section id="hero" class="relative overflow-hidden pt-20 pb-24 md:pt-32 md:pb-40 text-center">
+            <!-- Background Gradient/Pattern for Fintech Look -->
+            <div class="absolute inset-0 opacity-10" style="background: radial-gradient(#1B2A4A 1px, transparent 1px), radial-gradient(#1B2A4A 1px, transparent 1px); background-size: 40px 40px; background-position: 0 0, 20px 20px;"></div>
+            
+            <div class="relative max-w-4xl mx-auto px-4">
+                <h2 class="text-sm md:text-base font-medium uppercase tracking-widest text-accent mb-4 animate-fadeInUp">
+                    Tokenized Real Estate Investment
+                </h2>
+                <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold leading-tight mb-6 text-text-light">
+                    Transforming Real Estate Investment Through <span class="text-accent">Technology</span>
+                </h1>
+                <p class="text-lg md:text-xl text-text-gray mb-10 max-w-3xl mx-auto">
+                    Leveraging cutting-edge tokenization technology to provide exclusive access to high-yield real estate investments through our industry expertise and strategic relationships.
+                </p>
+                <a href="#focus" class="inline-block bg-accent text-white font-bold py-3 px-8 rounded-full text-lg hover:bg-red-700 transition duration-300 shadow-xl hover-lift">
+                    Explore Investment Opportunities
+                </a>
+            </div>
+        </section>
+
+        <!-- 2. Strategy Pillars Section -->
+        <section id="strategy" class="py-16 md:py-24 bg-secondary-bg/50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    
+                    <!-- Pillar 1 -->
+                    <div class="p-6 rounded-xl bg-secondary-bg border border-accent/20 transition duration-300 hover-lift group">
+                        <div class="text-accent mb-4">
+                            <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9.73h18"/><path d="M3 14.27h18"/><path d="M9.73 3v18"/><path d="M14.27 3v18"/></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-text-light">Multi-Family & Land Investment Focus</h3>
+                        <p class="text-text-gray">Strategic investment in high-growth multi-family properties and prime land acquisitions across emerging markets.</p>
+                    </div>
+
+                    <!-- Pillar 2 -->
+                    <div class="p-6 rounded-xl bg-secondary-bg border border-accent/20 transition duration-300 hover-lift group">
+                        <div class="text-accent mb-4">
+                            <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-text-light">Boots on Ground Strategy</h3>
+                        <p class="text-text-gray">Local market expertise with on-site teams ensuring comprehensive due diligence and optimal asset management.</p>
+                    </div>
+
+                    <!-- Pillar 3 -->
+                    <div class="p-6 rounded-xl bg-secondary-bg border border-accent/20 transition duration-300 hover-lift group">
+                        <div class="text-accent mb-4">
+                            <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><path d="M9 9h.01"/><path d="M15 9h.01"/></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-text-light">High Growth Areas Market Approach</h3>
+                        <p class="text-text-gray">Focused on rapidly expanding metropolitan areas with strong demographic trends and economic fundamentals.</p>
+                    </div>
+
+                    <!-- Pillar 4 -->
+                    <div class="p-6 rounded-xl bg-secondary-bg border border-accent/20 transition duration-300 hover-lift group">
+                        <div class="text-accent mb-4">
+                            <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 0 1 10 10c0 4.418-3.582 8-8 8s-8-3.582-8-8a10 10 0 0 1 10-10z"/><path d="M12 6v6l4 2"/></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-text-light">Tokenization Platform Technology</h3>
+                        <p class="text-text-gray">Advanced blockchain technology enabling fractional ownership and enhanced liquidity for real estate investments.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Focus & Allocation Section with Graph -->
+        <section id="focus" class="py-16 md:py-24">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row gap-12 items-center">
+                
+                <!-- Text Content -->
+                <div class="lg:w-1/2">
+                    <h2 class="text-4xl md:text-5xl font-extrabold mb-6 text-text-light">Our <span class="text-accent">Investment Focus</span></h2>
+                    <p class="text-lg text-text-gray mb-6">
+                        Our fund focuses on carefully selected income-producing properties in high-growth metropolitan areas. We combine traditional real estate expertise with innovative tokenization technology to create exceptional investment opportunities for our partners.
+                    </p>
+                    <p class="text-lg text-text-gray mb-8">
+                        Our diversified approach ensures optimal risk management while maximizing returns through strategic asset allocation across multiple property types and geographic markets.
+                    </p>
+                </div>
+
+                <!-- Investment Allocation Chart -->
+                <div class="lg:w-1/2 w-full flex flex-col items-center p-6 bg-secondary-bg rounded-xl shadow-lg border border-accent/20">
+                    <h3 class="text-2xl font-bold mb-6 text-text-light">Investment Allocation</h3>
+                    <div class="w-64 h-64 mb-6 relative">
+                        <!-- SVG Pie Chart will be rendered here by JavaScript -->
+                        <svg id="pieChart" class="w-full h-full" viewBox="0 0 100 100"></svg>
+                    </div>
+                    
+                    <!-- Legend -->
+                    <div class="space-y-3 w-full max-w-xs text-left">
+                        <div class="flex items-center justify-between p-2 rounded-lg bg-primary-bg">
+                            <span class="flex items-center"><span class="w-3 h-3 rounded-full mr-3" style="background-color: #A31F34;"></span> Multi-Family Properties</span>
+                            <span class="font-bold text-lg text-accent">45%</span>
+                        </div>
+                        <div class="flex items-center justify-between p-2 rounded-lg bg-primary-bg">
+                            <span class="flex items-center"><span class="w-3 h-3 rounded-full mr-3" style="background-color: #E63946;"></span> Strategic Land Acquisitions</span>
+                            <span class="font-bold text-lg text-accent">35%</span>
+                        </div>
+                        <div class="flex items-center justify-between p-2 rounded-lg bg-primary-bg">
+                            <span class="flex items-center"><span class="w-3 h-3 rounded-full mr-3" style="background-color: #F4D35E;"></span> Development Opportunities</span>
+                            <span class="font-bold text-lg text-accent">20%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Investment Services -->
+        <section id="services" class="py-16 md:py-24 bg-secondary-bg">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl md:text-5xl font-extrabold text-center mb-12 text-text-light">Our <span class="text-accent">Investment Services</span></h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    
+                    <!-- Service 1 -->
+                    <div class="p-8 rounded-xl bg-secondary-bg border-l-4 border-accent shadow-xl hover-lift">
+                        <h3 class="text-2xl font-bold mb-3 text-text-light">Multi-Family Property Investments</h3>
+                        <p class="text-text-gray">Curated portfolio of cash-flowing multi-family properties in high-growth markets with proven rental demand and appreciation potential.</p>
+                    </div>
+
+                    <!-- Service 2 -->
+                    <div class="p-8 rounded-xl bg-secondary-bg border-l-4 border-accent shadow-xl hover-lift">
+                        <h3 class="text-2xl font-bold mb-3 text-text-light">Land Acquisition Strategy</h3>
+                        <p class="text-text-gray">Strategic land banking in path-of-growth corridors, positioned for future development and significant value appreciation.</p>
+                    </div>
+
+                    <!-- Service 3 -->
+                    <div class="p-8 rounded-xl bg-secondary-bg border-l-4 border-accent shadow-xl hover-lift">
+                        <h3 class="text-2xl font-bold mb-3 text-text-light">Tokenized Investment Access</h3>
+                        <p class="text-text-gray">Revolutionary blockchain-based investment platform enabling fractional ownership and enhanced liquidity for real estate assets.</p>
+                    </div>
+
+                    <!-- Service 4 -->
+                    <div class="p-8 rounded-xl bg-secondary-bg border-l-4 border-accent shadow-xl hover-lift">
+                        <h3 class="text-2xl font-bold mb-3 text-text-light">Industry Intelligence</h3>
+                        <p class="text-text-gray">Comprehensive market analysis and proprietary intelligence providing strategic insights for optimal investment timing and positioning.</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Advanced Technology Platform Checklist -->
+        <section id="technology" class="py-16 md:py-24">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl md:text-5xl font-extrabold text-center mb-12 text-text-light"><span class="text-accent">Advanced</span> Technology Platform</h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Tech Feature 1 -->
+                    <div class="p-6 rounded-xl border border-secondary-bg hover:border-accent transition duration-300 hover-lift group">
+                        <div class="flex items-center space-x-3 mb-2">
+                            <svg class="w-6 h-6 text-accent" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.76l1.5-9A2 2 0 0 0 14 9Z"/></svg>
+                            <h3 class="text-xl font-semibold text-text-light">Advanced Tokenization Technology</h3>
+                        </div>
+                        <p class="text-text-gray">Cutting-edge blockchain infrastructure enabling fractional ownership and seamless digital asset management for Real World Assets.</p>
+                    </div>
+
+                    <!-- Tech Feature 2 -->
+                    <div class="p-6 rounded-xl border border-secondary-bg hover:border-accent transition duration-300 hover-lift group">
+                        <div class="flex items-center space-x-3 mb-2">
+                            <svg class="w-6 h-6 text-accent" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                            <h3 class="text-xl font-semibold text-text-light">Automated Compliance</h3>
+                        </div>
+                        <p class="text-text-gray">Integrated regulatory compliance systems ensuring adherence to all applicable securities and real estate regulations.</p>
+                    </div>
+
+                    <!-- Tech Feature 3 -->
+                    <div class="p-6 rounded-xl border border-secondary-bg hover:border-accent transition duration-300 hover-lift group">
+                        <div class="flex items-center space-x-3 mb-2">
+                            <svg class="w-6 h-6 text-accent" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s5 7 10 7 10-7 10-7"/><path d="M2 12c0-4.418 5-8 10-8s10 3.582 10 8"/></svg>
+                            <h3 class="text-xl font-semibold text-text-light">Transparent Reporting</h3>
+                        </div>
+                        <p class="text-text-gray">Real-time performance dashboards and comprehensive reporting providing complete investment transparency.</p>
+                    </div>
+
+                    <!-- Tech Feature 4 -->
+                    <div class="p-6 rounded-xl border border-secondary-bg hover:border-accent transition duration-300 hover-lift group">
+                        <div class="flex items-center space-x-3 mb-2">
+                            <svg class="w-6 h-6 text-accent" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                            <h3 class="text-xl font-semibold text-text-light">Secure Digital Infrastructure</h3>
+                        </div>
+                        <p class="text-text-gray">Enterprise-grade security protocols protecting investor data and digital assets with military-level encryption.</p>
+                    </div>
+                    
+                    <!-- Tech Feature 5 -->
+                    <div class="p-6 rounded-xl border border-secondary-bg hover:border-accent transition duration-300 hover-lift group">
+                        <div class="flex items-center space-x-3 mb-2">
+                            <svg class="w-6 h-6 text-accent" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                            <h3 class="text-xl font-semibold text-text-light">Investor Portal</h3>
+                        </div>
+                        <p class="text-text-gray">Intuitive investor interface providing portfolio management, performance tracking, and investment opportunities.</p>
+                    </div>
+                    
+                    <!-- Tech Feature 6 -->
+                    <div class="p-6 rounded-xl border border-secondary-bg hover:border-accent transition duration-300 hover-lift group">
+                        <div class="flex items-center space-x-3 mb-2">
+                            <svg class="w-6 h-6 text-accent" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18.7 8.3L14.7 12.3 11 8 5.3 15.7"/></svg>
+                            <h3 class="text-xl font-semibold text-text-light">Market Analytics</h3>
+                        </div>
+                        <p class="text-text-gray">Proprietary market intelligence and analytics platform driving data-driven investment decisions.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- 6. Leadership Team -->
+        <section id="team" class="py-16 md:py-24 bg-secondary-bg">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl md:text-5xl font-extrabold text-center mb-6 text-text-light">The <span class="text-accent">Leadership</span> Team</h2>
+                <p class="text-lg text-text-gray text-center mb-12 max-w-2xl mx-auto">
+                    Fintech real estate experts with decades of combined experience in finance, real estate, technology, and regulatory compliance.
+                </p>
+
+                <!-- Team Grid -->
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6 md:gap-8">
+                    
+                    <!-- Team Member 1: Ahmed Fouad Aly -->
+                    <div class="team-card p-4 rounded-xl bg-primary-bg shadow-xl cursor-pointer hover-lift text-center"
+                        data-name="Ahmed Fouad Aly"
+                        data-title="Energy Executive"
+                        data-img="uploaded:image.png-c36090b7-a2e8-4f04-99f4-d3c936e3b81f"
+                        data-bio="Ahmed Fouad Aly is a dynamic C-suite trained executive with over 24 years of global leadership across the energy sector. He has driven transformative change for Fortune 500 companies in North America, Africa, and the Middle East, advancing operational excellence, digital innovation, and organizational growth. Known for empowering teams and shaping resilient cultures, Ahmed is a strategic disruptor who champions ethical leadership, best practices, and sustainable success in rapidly evolving industries.">
+                        <!-- CORRECTED Image Source -->
+                        <img src="uploaded:image.png-c36090b7-a2e8-4f04-99f4-d3c936e3b81f" alt="Ahmed Fouad Aly" class="w-24 h-24 object-cover rounded-full mx-auto border-2 border-accent mb-3">
+                        <h4 class="font-bold text-text-light">Ahmed Fouad Aly</h4>
+                        <p class="text-xs text-accent">Energy Executive</p>
+                    </div>
+
+                    <!-- Team Member 2: Colby Fitch -->
+                    <div class="team-card p-4 rounded-xl bg-primary-bg shadow-xl cursor-pointer hover-lift text-center"
+                        data-name="Colby Fitch"
+                        data-title="Tech Entrepreneur & Innovator"
+                        data-img="uploaded:image.png-90a18805-1589-419a-9590-368eb1819ac5"
+                        data-bio="Colby Fitch is a veteran tech entrepreneur and visionary innovator. Beginning in 1996 with Teledesic, he helped pioneer global internet access through low-earth orbit satellite technology. In late 1990, he worked with early stage internet startups in Seattle including push technology pioneer Intermind. He later founded the speciality residential real estate marketplace Good Life Homes, one of the first platforms allowing buyers to search for homes online. A University of Colorado graduate, Colby continues to create and advise disruptive startups, earning recognition for his foresight and leadership.">
+                        <!-- CORRECTED Image Source -->
+                        <img src="uploaded:image.png-90a18805-1589-419a-9590-368eb1819ac5" alt="Colby Fitch" class="w-24 h-24 object-cover rounded-full mx-auto border-2 border-accent mb-3">
+                        <h4 class="font-bold text-text-light">Colby Fitch</h4>
+                        <p class="text-xs text-accent">Tech Entrepreneur & Innovator</p>
+                    </div>
+                    
+                    <!-- Team Member 3: Eric Fitch -->
+                    <div class="team-card p-4 rounded-xl bg-primary-bg shadow-xl cursor-pointer hover-lift text-center"
+                        data-name="Eric Fitch"
+                        data-title="Visionary Real Estate Leader"
+                        data-img="uploaded:image.png-43fc29f6-d955-490c-97dc-8feadf044bfc"
+                        data-bio="Eric Fitch is a visionary leader with 25 years of experience and $3.5B in real estate sales. A builder, developer, agent, and investor, he has shaped a portfolio that reflects both innovation and impact. Known for uniting people, capital, and ideas, Fitch drives growth through bold strategy and forward looking leadership, setting a new standard for what’s possible in real estate. Beyond his transactional success, Fitch has raised capital for multiple projects that have delivered investors an average return of 15–20%. With most investors reinvesting and compounding their gains, his ventures often fill quickly and generate waitlists, underscoring the trust and momentum he’s built in the investment community.">
+                        <!-- CORRECTED Image Source -->
+                        <img src="uploaded:image.png-43fc29f6-d955-490c-97dc-8feadf044bfc" alt="Eric Fitch" class="w-24 h-24 object-cover rounded-full mx-auto border-2 border-accent mb-3">
+                        <h4 class="font-bold text-text-light">Eric Fitch</h4>
+                        <p class="text-xs text-accent">Visionary Real Estate Leader</p>
+                    </div>
+
+                    <!-- Team Member 4: Aaron Gowatch -->
+                    <div class="team-card p-4 rounded-xl bg-primary-bg shadow-xl cursor-pointer hover-lift text-center"
+                        data-name="Aaron Gowatch"
+                        data-title="Technology & Engineering Expert"
+                        data-img="uploaded:image.png-7abd53d6-1120-4c87-bd63-8c8724d0c1fc"
+                        data-bio="Aaron is a senior technology and engineering leader, co-founder and Chief Architect of Biba Systems (acquired as Amazon Chime). At AWS, he led initiatives in collaboration, Alexa Identity, satellite data, and high-assurance systems. Holder of multiple patents, he brings expertise in governance, risk, innovation strategy, and scaling secure platforms.">
+                        <!-- CORRECTED Image Source -->
+                        <img src="uploaded:image.png-7abd53d6-1120-4c87-bd63-8c8724d0c1fc" alt="Aaron Gowatch" class="w-24 h-24 object-cover rounded-full mx-auto border-2 border-accent mb-3">
+                        <h4 class="font-bold text-text-light">Aaron Gowatch</h4>
+                        <p class="text-xs text-accent">Technology & Engineering Expert</p>
+                    </div>
+                    
+                    <!-- Team Member 5: Bryan Sise -->
+                    <div class="team-card p-4 rounded-xl bg-primary-bg shadow-xl cursor-pointer hover-lift text-center"
+                        data-name="Bryan Sise"
+                        data-title="Marketing & Technology Leader"
+                        data-img="uploaded:image.png-f0a21a69-d104-4a4f-a9fe-70abae695aa4"
+                        data-bio="Bryan brings an extensive track record in marketing and entrepreneurship. He is currently VP of Marketing at Checkr. He has built and led marketing teams at Twilio SendGrid and Twitter, co-founded Dynamic Signal and Athletic Motion, scaled early GTM at Process Street and Adify, and completed the ECLP rotational leadership program at GE. Bryan holds an MBA from Columbia Business School, an MA in Organizational Development from Columbia University, and a BA in Psychology from Reed College.">
+                        <!-- CORRECTED Image Source -->
+                        <img src="uploaded:image.png-f0a21a69-d104-4a4f-a9fe-70abae695aa4" alt="Bryan Sise" class="w-24 h-24 object-cover rounded-full mx-auto border-2 border-accent mb-3">
+                        <h4 class="font-bold text-text-light">Bryan Sise</h4>
+                        <p class="text-xs text-accent">Marketing & Technology Leader</p>
+                    </div>
+
+                    <!-- Team Member 6: Victoria Fitch -->
+                    <div class="team-card p-4 rounded-xl bg-primary-bg shadow-xl cursor-pointer hover-lift text-center"
+                        data-name="Victoria Fitch"
+                        data-title="Real Estate & Private Equity"
+                        data-img="uploaded:image.png-fd673700-4950-4d13-b041-be2cd8c85557"
+                        data-bio="Victoria Fitch is an accomplished real estate executive with expertise in land, private equity investments, and finance. She drives transformational strategies that propel revenue, optimize operations, and enable sustainable growth. A collaborative leader, she builds high-performing teams and trusted partnerships. Victoria holds a Master of Science in Infrastructure and Development from Johns Hopkins University.">
+                        <!-- CORRECTED Image Source -->
+                        <img src="uploaded:image.png-fd673700-4950-4d13-b041-be2cd8c85557" alt="Victoria Fitch" class="w-24 h-24 object-cover rounded-full mx-auto border-2 border-accent mb-3">
+                        <h4 class="font-bold text-text-light">Victoria Fitch</h4>
+                        <p class="text-xs text-accent">Real Estate & Private Equity</p>
+                    </div>
+                </div>
+
+                <!-- Advisory Board -->
+                <h3 class="text-3xl font-bold text-center mt-16 mb-8 text-text-light border-t pt-8 border-secondary-bg">Advisory Board</h3>
+                <div class="flex justify-center">
+                    <!-- Advisory Member 1: Dave Marcus (Placeholder image still used) -->
+                    <div class="team-card p-4 rounded-xl bg-primary-bg shadow-xl cursor-pointer hover-lift text-center max-w-xs"
+                        data-name="Dave Marcus"
+                        data-title="Legal Counsel"
+                        data-img="https://placehold.co/150x150/1f2937/ffffff?text=Legal+Counsel"
+                        data-bio="Dave Marcus shapes growth and strategy at the intersection of corporate governance, high-stakes transactions, and regulatory influence. He is Associate General Counsel at Dream Finders Homes (NYSE: DFH), where he advises executives on corporate structuring, compliance, and expansion initiatives. Dave has led multi-million-dollar land deals and acquisitions, guided entity reorganizations to reduce liability, and played a key role in Colorado legislation, both providing testimony and participating directly in negotiations with stakeholders at the State House. He also brings experience as fractional general counsel to technology, real estate, and consumer product companies. Dave holds a J.D. from the University of Denver Sturm College of Law and a B.A. in Political Science and Anthropology from Colorado College.">
+                        <img src="https://placehold.co/150x150/1f2937/ffffff?text=Legal+Counsel" onerror="this.onerror=null;this.src='https://placehold.co/150x150/1f2937/ffffff?text=Legal+Counsel';" alt="Dave Marcus" class="w-24 h-24 object-cover rounded-full mx-auto border-2 border-accent mb-3">
+                        <h4 class="font-bold text-text-light">Dave Marcus</h4>
+                        <p class="text-xs text-accent">Legal Counsel</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- 7. Contact / Footer CTA -->
+        <section id="contact" class="py-20 md:py-32 bg-primary-bg text-center border-t border-accent/30">
+            <div class="max-w-4xl mx-auto px-4">
+                <h2 class="text-4xl sm:text-5xl font-extrabold mb-6 text-text-light">
+                    Enhance Your Investment Portfolio
+                </h2>
+                <p class="text-xl text-text-gray mb-10">
+                    Connect with our team to learn about exclusive investment opportunities and discover how Iron Spur Equity can drive superior, tech-enabled returns.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-6">
+                    <a href="mailto:investments@ironspurequity.com" class="bg-accent text-white font-bold py-3 px-8 rounded-full text-lg hover:bg-red-700 transition duration-300 shadow-xl hover-lift w-full sm:w-auto">
+                        Contact Our Team
+                    </a>
+                    <a href="tel:+13035550177" class="text-accent border-2 border-accent font-bold py-3 px-8 rounded-full text-lg hover:bg-accent/10 transition duration-300 w-full sm:w-auto">
+                        Call Us: +1 (303) 555-0177
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-secondary-bg/50 border-t border-primary-bg">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col md:flex-row justify-between items-center text-sm text-text-gray">
+                <p>&copy; 2025 IRON SPUR EQUITY. All rights reserved.</p>
+                <div class="mt-4 md:mt-0 space-x-4">
+                    <span>Email: <a href="mailto:investments@ironspurequity.com" class="hover:text-accent">investments@ironspurequity.com</a></span>
+                </div>
+            </div>
+        </footer>
+
+    </main>
+
+    <script>
+        // Data for the Investment Allocation Pie Chart
+        const allocationData = [
+            { label: 'Multi-Family Properties', value: 45, color: '#A31F34' },
+            { label: 'Strategic Land Acquisitions', value: 35, color: '#E63946' },
+            { label: 'Development Opportunities', value: 20, color: '#F4D35E' }
+        ];
+
+        // Function to convert percentage to SVG path coordinates for a pie chart slice
+        function getCoordinatesForPercent(percent) {
+            const x = Math.cos(2 * Math.PI * percent);
+            const y = Math.sin(2 * Math.PI * percent);
+            return [x, y];
+        }
+
+        // Function to draw the Pie Chart
+        function drawPieChart() {
+            const svg = document.getElementById('pieChart');
+            if (!svg) return;
+
+            // Reset SVG content
+            svg.innerHTML = '';
+
+            let cumulativePercent = 0;
+            const center = 50;
+            const radius = 45;
+
+            // Add the background circle (optional, but nice)
+            const bgCircle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+            bgCircle.setAttribute('cx', center);
+            bgCircle.setAttribute('cy', center);
+            bgCircle.setAttribute('r', radius);
+            bgCircle.setAttribute('fill', 'var(--primary-bg)');
+            svg.appendChild(bgCircle);
+
+            allocationData.forEach(slice => {
+                const [startX, startY] = getCoordinatesForPercent(cumulativePercent);
+                cumulativePercent += slice.value / 100;
+                const [endX, endY] = getCoordinatesForPercent(cumulativePercent);
+                
+                const largeArcFlag = slice.value / 100 > 0.5 ? 1 : 0;
+                
+                const pathData = [
+                    `M ${center} ${center}`, // Start at the center
+                    `L ${center + startX * radius} ${center + startY * radius}`, // Move to the start of the arc
+                    `A ${radius} ${radius} 0 ${largeArcFlag} 1 ${center + endX * radius} ${center + endY * radius}`, // Draw the arc
+                    'Z' // Close the path back to the center
+                ].join(' ');
+
+                const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+                path.setAttribute('d', pathData);
+                path.setAttribute('fill', slice.color);
+                path.setAttribute('stroke', 'var(--primary-bg)');
+                path.setAttribute('stroke-width', '1.5');
+                path.classList.add('transition-all', 'duration-500', 'ease-in-out');
+                
+                // Add hover effect
+                path.onmouseover = () => {
+                    path.setAttribute('transform', 'scale(1.05)');
+                };
+                path.onmouseout = () => {
+                    path.setAttribute('transform', 'scale(1)');
+                };
+
+                svg.appendChild(path);
+            });
+        }
+
+        // --- Bio Modal Functions ---
+
+        const modal = document.getElementById('bioModal');
+        const modalContent = document.getElementById('modalContent');
+        const modalName = document.getElementById('modalName');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalBio = document.getElementById('modalBio');
+        const modalImage = document.getElementById('modalImage');
+
+        function openModal(name, title, bio, img) {
+            modalName.textContent = name;
+            modalTitle.textContent = title;
+            modalBio.textContent = bio;
+            modalImage.src = img;
+            
+            modal.classList.remove('hidden');
+            // Trigger transition effects
+            setTimeout(() => {
+                modalContent.classList.remove('scale-95', 'opacity-0');
+                modalContent.classList.add('scale-100', 'opacity-100');
+            }, 10); // Small delay to ensure display:block is applied
+        }
+
+        function closeModal() {
+            // Trigger transition effects
+            modalContent.classList.remove('scale-100', 'opacity-100');
+            modalContent.classList.add('scale-95', 'opacity-0');
+            
+            // Hide the modal after transition
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300); 
+        }
+
+        // Event listener for all team cards
+        document.querySelectorAll('.team-card').forEach(card => {
+            card.addEventListener('click', (e) => {
+                // Prevent click on image from double-triggering
+                if (e.target.tagName.toLowerCase() === 'img') return;
+
+                const name = card.getAttribute('data-name');
+                const title = card.getAttribute('data-title');
+                const bio = card.getAttribute('data-bio');
+                const img = card.getAttribute('data-img');
+                
+                openModal(name, title, bio, img);
+            });
+        });
+
+        // Close modal when clicking outside
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        // Initialize on load
+        window.onload = function() {
+            drawPieChart();
