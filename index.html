@@ -1,12 +1,10 @@
 <!DOCTYPE html>
-<html lang="en"><head>
+<html lang="en">
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Iron Spur Equity - Transforming Real Estate Investment</title>
-
-  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-
   <script>
     tailwind.config = {
       theme: {
@@ -25,446 +23,369 @@
       }
     };
   </script>
-
-  <link rel="stylesheet" href="styles.css">
+  <style>
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: system-ui, -apple-system, sans-serif; }
+    
+    .hero-pattern {
+      background: radial-gradient(#1B2A4A 1px, transparent 1px);
+      background-size: 40px 40px;
+      animation: gridFlow 20s linear infinite;
+    }
+    
+    @keyframes gridFlow {
+      0% { background-position: 0 0; }
+      100% { background-position: 40px 40px; }
+    }
+    
+    .hover-lift {
+      transition: transform 200ms ease, box-shadow 200ms ease;
+    }
+    
+    .hover-lift:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(163, 31, 52, 0.25);
+    }
+    
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .constellation {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+    
+    .dot {
+      position: absolute;
+      width: 3px;
+      height: 3px;
+      background: #D4AF37;
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 1; }
+    }
+  </style>
 </head>
+<body class="bg-primary text-textLight">
 
-<body class="antialiased bg-primary text-textLight">
-
-  <!-- Header / Navigation -->
-  <header class="sticky top-0 z-40 bg-primary/95 backdrop-blur-sm shadow-lg border-b border-secondary">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 sm:py-3 flex items-center justify-between">
-      <div class="flex items-center space-x-2 sm:space-x-3 px-2 sm:px-3 py-1 rounded-full bg-silver/10 border border-silver/40">
-        <img
-          src="https://xtact.github.io/irnspr/assets/images/iron_logo.jpg"
-          alt="Iron Spur Equity logo"
-          class="h-6 sm:h-8 w-auto"
-          width="160"
-          height="40"
-          loading="eager"
-        >
-        <span class="hidden sm:block text-lg sm:text-xl font-extrabold uppercase tracking-widest text-textLight">
-          IRON SPUR
-        </span>
-      </div>
-      <a
-        href="#contact"
-        class="bg-accent text-white font-semibold py-2 px-4 text-xs sm:text-sm rounded-full hover:bg-red-700 transition duration-300 hover-lift shadow-lg"
-      >
-        Invest Now
-      </a>
+<!-- Header -->
+<header class="sticky top-0 z-40 bg-primary/95 backdrop-blur-sm shadow-lg border-b border-secondary">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 sm:py-3 flex items-center justify-between">
+    <div class="flex items-center space-x-2 sm:space-x-3 px-2 sm:px-3 py-1 rounded-full bg-silver/10 border border-silver/40">
+      <img src="https://xtact.github.io/irnspr/assets/images/iron_logo.jpg" alt="Iron Spur" class="h-6 sm:h-8 w-auto" width="160" height="40">
+      <span class="hidden sm:block text-lg sm:text-xl font-extrabold uppercase tracking-widest">IRON SPUR</span>
     </div>
-  </header>
+    <a href="#contact" class="bg-accent text-white font-semibold py-2 px-4 text-xs sm:text-sm rounded-full hover:bg-red-700 transition">Invest Now</a>
+  </div>
+</header>
 
-  <main>
-    <!-- Hero Section -->
-    <section id="hero" class="relative overflow-hidden pt-10 pb-12 sm:pt-12 sm:pb-16 md:pt-20 md:pb-24 lg:pt-32 lg:pb-40 text-center">
-      <!-- Animated Grid Background -->
-      <div class="absolute inset-0 hero-pattern opacity-10"></div>
-      <div class="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/80"></div>
-
-      <div class="relative max-w-4xl mx-auto px-4">
-        <p class="text-xs sm:text-sm font-medium uppercase tracking-widest text-gold mb-3 sm:mb-4">
-          Tokenized Real Estate
-        </p>
-
-        <h1 class="text-2xl sm:text-3xl md:text-5xl lg:text-7xl font-extrabold leading-tight mb-4 sm:mb-6 text-textLight">
-          Transforming Real Estate Investment Through <span class="text-gold">Technology</span>
-        </h1>
-
-        <p class="text-sm sm:text-base md:text-lg lg:text-xl text-textMuted mb-6 sm:mb-8 max-w-3xl mx-auto">
-          Access institutional‑grade multi‑family and land opportunities in high‑growth markets, delivered via a secure, tokenized investment platform.
-        </p>
-
-        <!-- Proof Stats -->
-        <div class="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 mb-6 sm:mb-8 text-xs sm:text-sm md:text-base text-textMuted">
-          <div class="px-3 sm:px-4 py-2 sm:py-3 rounded-lg bg-secondary/60 border border-silver/40">
-            <div class="text-xl sm:text-2xl lg:text-3xl font-bold text-gold">25+</div>
-            <div class="uppercase tracking-wider text-xs">Leadership Experience</div>
-          </div>
-          <div class="px-3 sm:px-4 py-2 sm:py-3 rounded-lg bg-secondary/60 border border-silver/40">
-            <div class="text-xl sm:text-2xl lg:text-3xl font-bold text-gold">$3.5B+</div>
-            <div class="uppercase tracking-wider text-xs">Real Estate Transactions</div>
-          </div>
-          <div class="px-3 sm:px-4 py-2 sm:py-3 rounded-lg bg-secondary/60 border border-silver/40">
-            <div class="text-xl sm:text-2xl lg:text-3xl font-bold text-gold">15–20%</div>
-            <div class="uppercase tracking-wider text-xs">Historical Returns</div>
-          </div>
+<main>
+  <!-- Hero -->
+  <section id="hero" class="relative overflow-hidden pt-10 pb-12 sm:pt-12 sm:pb-16 md:pt-20 md:pb-24 lg:pt-32 lg:pb-40 text-center">
+    <div class="absolute inset-0 hero-pattern opacity-15"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/80"></div>
+    
+    <div class="relative max-w-4xl mx-auto px-4">
+      <p class="text-xs sm:text-sm font-medium uppercase tracking-widest text-gold mb-3 sm:mb-4">Tokenized Real Estate</p>
+      <h1 class="text-2xl sm:text-3xl md:text-5xl lg:text-7xl font-extrabold leading-tight mb-4 sm:mb-6">Transforming Real Estate Investment Through <span class="text-gold">Technology</span></h1>
+      <p class="text-sm sm:text-base md:text-lg lg:text-xl text-textMuted mb-6 sm:mb-8 max-w-3xl mx-auto">Access institutional‑grade multi‑family and land opportunities in high‑growth markets, delivered via a secure, tokenized investment platform.</p>
+      
+      <div class="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 mb-6 sm:mb-8">
+        <div class="px-3 sm:px-4 py-2 sm:py-3 rounded-lg bg-secondary/60 border border-silver/40">
+          <div class="text-xl sm:text-2xl lg:text-3xl font-bold text-gold">25+</div>
+          <div class="uppercase tracking-wider text-xs text-textMuted">Leadership Experience</div>
         </div>
-
-        <a
-          href="#focus"
-          class="inline-block bg-gold text-primary font-bold py-2 sm:py-3 px-6 sm:px-8 rounded-full text-sm sm:text-base lg:text-lg hover:bg-amber transition duration-300 hover-lift shadow-xl"
-        >
-          Explore Opportunities
-        </a>
-      </div>
-
-      <!-- Scroll Indicator -->
-      <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div class="text-gold text-xs mb-2">Discover more</div>
-        <svg class="w-6 h-6 text-gold mx-auto animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-        </svg>
-      </div>
-    </section>
-
-    <!-- Strategy Pillars -->
-    <section id="strategy" class="py-12 sm:py-16 md:py-24 bg-secondary/60">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-          
-          <article class="p-6 rounded-xl bg-secondary border border-accent/20 hover-lift transition-all duration-300">
-            <div class="w-8 h-8 text-gold mb-4">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect width="18" height="18" x="3" y="3" rx="2"></rect>
-                <path d="M3 9.73h18M3 14.27h18M9.73 3v18M14.27 3v18"></path>
-              </svg>
-            </div>
-            <h3 class="text-lg sm:text-xl font-bold mb-2 text-textLight">Multi‑family &amp; Land</h3>
-            <p class="text-sm sm:text-base text-textMuted">
-              Focused on income‑producing multi‑family assets and strategic land in high‑growth corridors.
-            </p>
-          </article>
-
-          <article class="p-6 rounded-xl bg-silver/15 border border-silver/50 hover-lift transition-all duration-300">
-            <div class="w-8 h-8 text-gold mb-4">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="m18 15-6-6-6 6"></path>
-              </svg>
-            </div>
-            <h3 class="text-lg sm:text-xl font-bold mb-2 text-textLight">Boots‑on‑Ground</h3>
-            <p class="text-sm sm:text-base text-textMuted">
-              Local partners and on‑site teams drive sourcing, due diligence, and asset management.
-            </p>
-          </article>
-
-          <article class="p-6 rounded-xl bg-secondary border border-accent/20 hover-lift transition-all duration-300">
-            <div class="w-8 h-8 text-gold mb-4">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="10"></circle>
-                <path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01"></path>
-              </svg>
-            </div>
-            <h3 class="text-lg sm:text-xl font-bold mb-2 text-textLight">Growth Markets</h3>
-            <p class="text-sm sm:text-base text-textMuted">
-              Targeting metros with strong population, employment, and rent‑growth trends.
-            </p>
-          </article>
-
-          <article class="p-6 rounded-xl bg-silver/15 border border-silver/50 hover-lift transition-all duration-300">
-            <div class="w-8 h-8 text-gold mb-4">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 2a10 10 0 0 1 10 10c0 4.418-3.582 8-8 8s-8-3.582-8-8A10 10 0 0 1 12 2z"></path>
-                <path d="M12 6v6l4 2"></path>
-              </svg>
-            </div>
-            <h3 class="text-lg sm:text-xl font-bold mb-2 text-textLight">Tokenization Platform</h3>
-            <p class="text-sm sm:text-base text-textMuted">
-              Blockchain‑based architecture enabling fractional ownership and improved liquidity.
-            </p>
-          </article>
+        <div class="px-3 sm:px-4 py-2 sm:py-3 rounded-lg bg-secondary/60 border border-silver/40">
+          <div class="text-xl sm:text-2xl lg:text-3xl font-bold text-gold">$3.5B+</div>
+          <div class="uppercase tracking-wider text-xs text-textMuted">Real Estate Transactions</div>
+        </div>
+        <div class="px-3 sm:px-4 py-2 sm:py-3 rounded-lg bg-secondary/60 border border-silver/40">
+          <div class="text-xl sm:text-2xl lg:text-3xl font-bold text-gold">15–20%</div>
+          <div class="uppercase tracking-wider text-xs text-textMuted">Historical Returns</div>
         </div>
       </div>
-    </section>
-
-    <!-- Investment Focus + Chart -->
-    <section id="focus" class="py-12 sm:py-16 md:py-24">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row gap-8 md:gap-12 items-center">
-        <div class="lg:w-1/2">
-          <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4 sm:mb-6">
-            Our <span class="text-gold">Investment Focus</span>
-          </h2>
-          <p class="text-sm sm:text-base md:text-lg text-textMuted mb-4">
-            The strategy concentrates on stabilized multi‑family, strategic land banking, and select development opportunities in growing metros.
-          </p>
-          <p class="text-sm sm:text-base md:text-lg text-textMuted">
-            Diversification across property types and markets is designed to balance downside protection with attractive total return potential.
-          </p>
-        </div>
-
-        <div class="lg:w-1/2 w-full p-4 sm:p-6 rounded-xl bg-silver/10 shadow-lg border border-silver/50">
-          <h3 class="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-center text-textLight">Target Allocation</h3>
-          <div class="w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 mx-auto mb-4 sm:mb-6 relative">
-            <svg id="donutChart" class="w-full h-full" viewBox="0 0 200 200"></svg>
-          </div>
-          <div class="space-y-2 sm:space-y-3">
-            <div class="flex items-center justify-between p-2 sm:p-3 rounded-lg bg-primary/40 text-xs sm:text-sm text-textMuted">
-              <span class="flex items-center">
-                <span class="w-3 h-3 rounded-full mr-2 sm:mr-3" style="background-color:#A31F34;"></span>
-                Multi‑family Properties
-              </span>
-              <span class="font-bold text-gold">45%</span>
-            </div>
-            <div class="flex items-center justify-between p-2 sm:p-3 rounded-lg bg-primary/40 text-xs sm:text-sm text-textMuted">
-              <span class="flex items-center">
-                <span class="w-3 h-3 rounded-full mr-2 sm:mr-3" style="background-color:#D4AF37;"></span>
-                Strategic Land
-              </span>
-              <span class="font-bold text-gold">35%</span>
-            </div>
-            <div class="flex items-center justify-between p-2 sm:p-3 rounded-lg bg-primary/40 text-xs sm:text-sm text-textMuted">
-              <span class="flex items-center">
-                <span class="w-3 h-3 rounded-full mr-2 sm:mr-3" style="background-color:#F4A300;"></span>
-                Development
-              </span>
-              <span class="font-bold text-gold">20%</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Performance Metrics -->
-    <section class="py-12 sm:py-16 md:py-24 bg-secondary/40">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-center mb-8 md:mb-12 text-textLight">
-          Investment <span class="text-gold">Performance Metrics</span>
-        </h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
-          <div class="p-4 sm:p-6 rounded-xl bg-primary/60 border border-gold/30 text-center hover-lift">
-            <div class="text-2xl sm:text-3xl font-bold text-gold mb-2">12-18%</div>
-            <p class="text-xs sm:text-sm text-textMuted uppercase tracking-wider">Target Annual Returns</p>
-          </div>
-          <div class="p-4 sm:p-6 rounded-xl bg-primary/60 border border-gold/30 text-center hover-lift">
-            <div class="text-2xl sm:text-3xl font-bold text-gold mb-2">3-7</div>
-            <p class="text-xs sm:text-sm text-textMuted uppercase tracking-wider">Average Hold Period (Years)</p>
-          </div>
-          <div class="p-4 sm:p-6 rounded-xl bg-primary/60 border border-gold/30 text-center hover-lift">
-            <div class="text-2xl sm:text-3xl font-bold text-gold mb-2">8+</div>
-            <p class="text-xs sm:text-sm text-textMuted uppercase tracking-wider">Active Markets</p>
-          </div>
-          <div class="p-4 sm:p-6 rounded-xl bg-primary/60 border border-gold/30 text-center hover-lift">
-            <div class="text-2xl sm:text-3xl font-bold text-gold mb-2">$50K</div>
-            <p class="text-xs sm:text-sm text-textMuted uppercase tracking-wider">Minimum Investment</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Services -->
-    <section id="services" class="py-12 sm:py-16 md:py-24">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-center mb-8 md:mb-12 text-textLight">
-          Investment <span class="text-gold">Services</span>
-        </h2>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
-          <article class="p-6 md:p-8 rounded-xl bg-secondary border-l-4 border-accent shadow-xl hover-lift">
-            <h3 class="text-lg sm:text-xl md:text-2xl font-bold mb-2 sm:mb-3 text-textLight">Multi‑Family Investments</h3>
-            <p class="text-sm sm:text-base text-textMuted">Curated portfolio of cash‑flowing multi‑family properties in high‑growth markets with proven rental demand and appreciation potential.</p>
-          </article>
-
-          <article class="p-6 md:p-8 rounded-xl bg-silver/15 border-l-4 border-silver/70 shadow-xl hover-lift">
-            <h3 class="text-lg sm:text-xl md:text-2xl font-bold mb-2 sm:mb-3 text-textLight">Land Acquisition Strategy</h3>
-            <p class="text-sm sm:text-base text-textMuted">Strategic land banking in path‑of‑growth corridors, positioned for future development and significant value appreciation.</p>
-          </article>
-
-          <article class="p-6 md:p-8 rounded-xl bg-secondary border-l-4 border-accent shadow-xl hover-lift">
-            <h3 class="text-lg sm:text-xl md:text-2xl font-bold mb-2 sm:mb-3 text-textLight">Tokenized Investment Access</h3>
-            <p class="text-sm sm:text-base text-textMuted">Revolutionary blockchain‑based investment platform enabling fractional ownership and enhanced liquidity for real estate assets.</p>
-          </article>
-
-          <article class="p-6 md:p-8 rounded-xl bg-silver/15 border-l-4 border-silver/70 shadow-xl hover-lift">
-            <h3 class="text-lg sm:text-xl md:text-2xl font-bold mb-2 sm:mb-3 text-textLight">Industry Intelligence</h3>
-            <p class="text-sm sm:text-base text-textMuted">Comprehensive market analysis and proprietary intelligence providing strategic insights for optimal investment timing.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Technology Platform -->
-    <section id="technology" class="py-12 sm:py-16 md:py-24 bg-secondary/40">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-center mb-8 md:mb-12 text-textLight">
-          <span class="text-gold">Advanced</span> Technology Platform
-        </h2>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
-          <article class="p-6 rounded-xl bg-secondary border border-secondary/80 hover:border-gold/50 hover-lift transition-all duration-300">
-            <div class="w-6 h-6 text-gold mb-3">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.76l1.5-9A2 2 0 0 0 14 9Z"></path>
-              </svg>
-            </div>
-            <h3 class="text-lg sm:text-xl font-semibold mb-2 text-textLight">Advanced Tokenization</h3>
-            <p class="text-xs sm:text-sm text-textMuted">Cutting‑edge blockchain infrastructure enabling fractional ownership and seamless digital asset management.</p>
-          </article>
-
-          <article class="p-6 rounded-xl bg-silver/15 border border-silver/50 hover:border-gold/50 hover-lift transition-all duration-300">
-            <div class="w-6 h-6 text-gold mb-3">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-              </svg>
-            </div>
-            <h3 class="text-lg sm:text-xl font-semibold mb-2 text-textLight">Automated Compliance</h3>
-            <p class="text-xs sm:text-sm text-textMuted">Integrated regulatory compliance systems ensuring adherence to all applicable securities and real estate regulations.</p>
-          </article>
-
-          <article class="p-6 rounded-xl bg-secondary border border-secondary/80 hover:border-gold/50 hover-lift transition-all duration-300">
-            <div class="w-6 h-6 text-gold mb-3">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M2 12s5 7 10 7 10-7 10-7M2 12c0-4.418 5-8 10-8s10 3.582 10 8"></path>
-              </svg>
-            </div>
-            <h3 class="text-lg sm:text-xl font-semibold mb-2 text-textLight">Transparent Reporting</h3>
-            <p class="text-xs sm:text-sm text-textMuted">Real‑time performance dashboards and comprehensive reporting providing complete investment transparency.</p>
-          </article>
-
-          <article class="p-6 rounded-xl bg-silver/15 border border-silver/50 hover:border-gold/50 hover-lift transition-all duration-300">
-            <div class="w-6 h-6 text-gold mb-3">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-              </svg>
-            </div>
-            <h3 class="text-lg sm:text-xl font-semibold mb-2 text-textLight">Secure Infrastructure</h3>
-            <p class="text-xs sm:text-sm text-textMuted">Enterprise‑grade security protocols protecting investor data and digital assets with military‑level encryption.</p>
-          </article>
-          
-          <article class="p-6 rounded-xl bg-secondary border border-secondary/80 hover:border-gold/50 hover-lift transition-all duration-300">
-            <div class="w-6 h-6 text-gold mb-3">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
-                <circle cx="12" cy="7" r="4"></circle>
-              </svg>
-            </div>
-            <h3 class="text-lg sm:text-xl font-semibold mb-2 text-textLight">Investor Portal</h3>
-            <p class="text-xs sm:text-sm text-textMuted">Intuitive investor interface providing portfolio management, performance tracking, and investment opportunities.</p>
-          </article>
-          
-          <article class="p-6 rounded-xl bg-silver/15 border border-silver/50 hover:border-gold/50 hover-lift transition-all duration-300">
-            <div class="w-6 h-6 text-gold mb-3">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M3 3v18h18M3 3v18h18M18.7 8.3L14.7 12.3 11 8 5.3 15.7"></path>
-              </svg>
-            </div>
-            <h3 class="text-lg sm:text-xl font-semibold mb-2 text-textLight">Market Analytics</h3>
-            <p class="text-xs sm:text-sm text-textMuted">Proprietary market intelligence and analytics platform driving data‑driven investment decisions.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Leadership Team -->
-    <section id="team" class="py-12 sm:py-16 md:py-24 bg-secondary/60">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-center mb-4 text-textLight">
-          The <span class="text-gold">Leadership</span> Team
-        </h2>
-        <p class="text-sm sm:text-base md:text-lg text-textMuted text-center mb-8 md:mb-12 max-w-2xl mx-auto">
-          Cross‑disciplinary leaders in finance, real estate, energy, and technology.
-        </p>
-
-        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-6 gap-3 md:gap-6">
-          
-          <!-- Ahmed Fouad Aly -->
-          <article class="team-card p-3 sm:p-4 rounded-xl bg-primary shadow-xl cursor-pointer hover-lift text-center border border-primary/80 transition-all duration-300 hover:border-gold/50"
-                   data-name="Ahmed Fouad Aly"
-                   data-title="Energy Executive"
-                   data-img="https://xtact.github.io/irnspr/assets/images/ahmed.jpg"
-                   data-bio="Ahmed Fouad Aly is a dynamic C-suite trained executive with over 24 years of global leadership across the energy sector. He has driven transformative change for Fortune 500 companies in North America, Africa, and the Middle East, advancing operational excellence, digital innovation, and organizational growth.">
-            <img src="https://xtact.github.io/irnspr/assets/images/ahmed.jpg" alt="Portrait of Ahmed Fouad Aly" class="w-16 sm:w-20 h-16 sm:h-20 object-cover rounded-full mx-auto border-2 border-gold mb-2 sm:mb-3" width="96" height="96" loading="lazy">
-            <h3 class="text-xs sm:text-sm font-bold text-textLight">Ahmed Fouad Aly</h3>
-            <p class="text-xs text-gold mb-1">Energy Executive</p>
-          </article>
-
-          <!-- Colby Fitch -->
-          <article class="team-card p-3 sm:p-4 rounded-xl bg-silver/10 shadow-xl cursor-pointer hover-lift text-center border border-silver/60 transition-all duration-300 hover:border-gold/50"
-                   data-name="Colby Fitch"
-                   data-title="Tech Entrepreneur & Innovator"
-                   data-img="https://xtact.github.io/irnspr/assets/images/colby.jpg"
-                   data-bio="Colby Fitch is a veteran tech entrepreneur and visionary innovator. Beginning in 1996 with Teledesic, he helped pioneer global internet access through low-earth orbit satellite technology. He later founded Good Life Homes, one of the first residential real estate marketplaces.">
-            <img src="https://xtact.github.io/irnspr/assets/images/colby.jpg" alt="Portrait of Colby Fitch" class="w-16 sm:w-20 h-16 sm:h-20 object-cover rounded-full mx-auto border-2 border-silver mb-2 sm:mb-3" width="96" height="96" loading="lazy">
-            <h3 class="text-xs sm:text-sm font-bold text-textLight">Colby Fitch</h3>
-            <p class="text-xs text-gold mb-1">Tech Entrepreneur</p>
-          </article>
-          
-          <!-- Eric Fitch -->
-          <article class="team-card p-3 sm:p-4 rounded-xl bg-primary shadow-xl cursor-pointer hover-lift text-center border border-primary/80 transition-all duration-300 hover:border-gold/50"
-                   data-name="Eric Fitch"
-                   data-title="Visionary Real Estate Leader"
-                   data-img="https://xtact.github.io/irnspr/assets/images/eric.jpeg"
-                   data-bio="Eric Fitch is a visionary leader with 25 years of experience and $3.5B in real estate sales. A builder, developer, agent, and investor, he has shaped a portfolio that reflects both innovation and impact. His ventures deliver investors 15-20% average returns.">
-            <img src="https://xtact.github.io/irnspr/assets/images/eric.jpeg" alt="Portrait of Eric Fitch" class="w-16 sm:w-20 h-16 sm:h-20 object-cover rounded-full mx-auto border-2 border-gold mb-2 sm:mb-3" width="96" height="96" loading="lazy">
-            <h3 class="text-xs sm:text-sm font-bold text-textLight">Eric Fitch</h3>
-            <p class="text-xs text-gold mb-1">Real Estate Leader</p>
-          </article>
-
-          <!-- Aaron Gowatch -->
-          <article class="team-card p-3 sm:p-4 rounded-xl bg-silver/10 shadow-xl cursor-pointer hover-lift text-center border border-silver/60 transition-all duration-300 hover:border-gold/50"
-                   data-name="Aaron Gowatch"
-                   data-title="Technology & Engineering Expert"
-                   data-img="https://xtact.github.io/irnspr/assets/images/aaron.jpg"
-                   data-bio="Aaron is a senior technology and engineering leader, co-founder and Chief Architect of Biba Systems (acquired as Amazon Chime). At AWS, he led initiatives in collaboration, Alexa Identity, satellite data, and high-assurance systems. Holder of multiple patents.">
-            <img src="https://xtact.github.io/irnspr/assets/images/aaron.jpg" alt="Portrait of Aaron Gowatch" class="w-16 sm:w-20 h-16 sm:h-20 object-cover rounded-full mx-auto border-2 border-silver mb-2 sm:mb-3" width="96" height="96" loading="lazy">
-            <h3 class="text-xs sm:text-sm font-bold text-textLight">Aaron Gowatch</h3>
-            <p class="text-xs text-gold mb-1">Engineering Expert</p>
-          </article>
-
-          <!-- Bryan Hurlburt -->
-          <article class="team-card p-3 sm:p-4 rounded-xl bg-primary shadow-xl cursor-pointer hover-lift text-center border border-primary/80 transition-all duration-300 hover:border-gold/50"
-                   data-name="Bryan Hurlburt"
-                   data-title="Strategic Operations"
-                   data-img="https://xtact.github.io/irnspr/assets/images/bryan.jpg"
-                   data-bio="Bryan brings extensive experience in strategic operations and business development within real estate and investment sectors. His expertise in operational efficiency and market analysis drives Iron Spur's execution excellence and strategic growth initiatives.">
-            <img src="https://xtact.github.io/irnspr/assets/images/bryan.jpg" alt="Portrait of Bryan Hurlburt" class="w-16 sm:w-20 h-16 sm:h-20 object-cover rounded-full mx-auto border-2 border-gold mb-2 sm:mb-3" width="96" height="96" loading="lazy">
-            <h3 class="text-xs sm:text-sm font-bold text-textLight">Bryan Hurlburt</h3>
-            <p class="text-xs text-gold mb-1">Operations</p>
-          </article>
-
-          <!-- Tori Fitch -->
-          <article class="team-card p-3 sm:p-4 rounded-xl bg-silver/10 shadow-xl cursor-pointer hover-lift text-center border border-silver/60 transition-all duration-300 hover:border-gold/50"
-                   data-name="Tori Fitch"
-                   data-title="Investor Relations"
-                   data-img="https://xtact.github.io/irnspr/assets/images/tori.jpg"
-                   data-bio="Tori leads investor relations with a focus on transparent communication and building lasting partnerships. Her dedication to investor success and attention to detail ensures exceptional client experience and satisfaction across all interactions.">
-            <img src="https://xtact.github.io/irnspr/assets/images/tori.jpg" alt="Portrait of Tori Fitch" class="w-16 sm:w-20 h-16 sm:h-20 object-cover rounded-full mx-auto border-2 border-silver mb-2 sm:mb-3" width="96" height="96" loading="lazy">
-            <h3 class="text-xs sm:text-sm font-bold text-textLight">Tori Fitch</h3>
-            <p class="text-xs text-gold mb-1">Investor Relations</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Modal for Team Bios -->
-    <div id="bioModal" class="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4 hidden">
-      <article class="bg-secondary/95 rounded-2xl shadow-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto backdrop-blur-sm border border-silver/40" id="modalContent">
-        <div class="p-4 sm:p-6 md:p-8 sticky top-0 bg-secondary/95 border-b border-silver/40 flex justify-between items-center">
-          <h2 id="modalName" class="text-xl sm:text-2xl md:text-3xl font-bold text-textLight"></h2>
-          <button onclick="closeModal()" class="text-textLight hover:text-gold focus:outline-none transition-colors">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-            </svg>
-          </button>
-        </div>
-        <div class="p-4 sm:p-6 md:p-8">
-          <img id="modalImage" src="" alt="Team Member Photo" class="w-24 sm:w-28 h-24 sm:h-28 object-cover rounded-full mx-auto border-4 border-gold mb-4 sm:mb-6" loading="lazy">
-          <p id="modalTitle" class="text-gold text-base sm:text-lg font-semibold text-center mb-4">-</p>
-          <p id="modalBio" class="text-xs sm:text-sm text-textMuted leading-relaxed whitespace-pre-line"></p>
-        </div>
-      </article>
+      <a href="#focus" class="inline-block bg-gold text-primary font-bold py-2 sm:py-3 px-6 sm:px-8 rounded-full text-sm sm:text-base hover:bg-amber transition">Explore Opportunities</a>
     </div>
+  </section>
 
-    <!-- Contact CTA -->
-    <section id="contact" class="py-12 sm:py-16 md:py-24 bg-primary border-t border-silver/40">
-      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold mb-3 sm:mb-4 text-textLight">
-          Ready to Invest?
-        </h2>
-        <p class="text-sm sm:text-base md:text-lg text-textMuted mb-6 md:mb-8">
-          Share your objectives and timeline. Our team will follow up with a tailored overview of current and upcoming opportunities.
-        </p>
-        <a
-          href="mailto:invest@ironspur.com"
-          class="inline-block bg-gold text-primary font-semibold py-2 sm:py-3 px-6 sm:px-8 rounded-full text-sm sm:text-base hover:bg-amber transition duration-300 hover-lift shadow-xl"
-        >
-          Connect With Our Team
-        </a>
+  <!-- Strategy Pillars -->
+  <section class="py-16 md:py-32 bg-secondary/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+        <article class="p-6 rounded-xl bg-secondary border border-accent/20 hover-lift">
+          <div class="w-8 h-8 text-gold mb-4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9.73h18M3 14.27h18M9.73 3v18M14.27 3v18"/></svg></div>
+          <h3 class="text-lg sm:text-xl font-bold mb-2">Multi‑family &amp; Land</h3>
+          <p class="text-sm sm:text-base text-textMuted">Focused on income‑producing multi‑family assets and strategic land in high‑growth corridors.</p>
+        </article>
+        <article class="p-6 rounded-xl bg-silver/15 border border-silver/50 hover-lift">
+          <div class="w-8 h-8 text-gold mb-4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m18 15-6-6-6 6"/></svg></div>
+          <h3 class="text-lg sm:text-xl font-bold mb-2">Boots‑on‑Ground</h3>
+          <p class="text-sm sm:text-base text-textMuted">Local partners and on‑site teams drive sourcing, due diligence, and asset management.</p>
+        </article>
+        <article class="p-6 rounded-xl bg-secondary border border-accent/20 hover-lift">
+          <div class="w-8 h-8 text-gold mb-4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01"/></svg></div>
+          <h3 class="text-lg sm:text-xl font-bold mb-2">Growth Markets</h3>
+          <p class="text-sm sm:text-base text-textMuted">Targeting metros with strong population, employment, and rent‑growth trends.</p>
+        </article>
+        <article class="p-6 rounded-xl bg-silver/15 border border-silver/50 hover-lift">
+          <div class="w-8 h-8 text-gold mb-4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 0 1 10 10c0 4.418-3.582 8-8 8s-8-3.582-8-8A10 10 0 0 1 12 2z"/><path d="M12 6v6l4 2"/></svg></div>
+          <h3 class="text-lg sm:text-xl font-bold mb-2">Tokenization</h3>
+          <p class="text-sm sm:text-base text-textMuted">Blockchain‑based architecture enabling fractional ownership and improved liquidity.</p>
+        </article>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
 
-  <script src="script.js"></script>
+  <!-- Investment Focus -->
+  <section id="focus" class="py-16 md:py-32">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row gap-8 md:gap-12 items-center">
+      <div class="lg:w-1/2">
+        <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4 sm:mb-6">Our <span class="text-gold">Investment Focus</span></h2>
+        <p class="text-sm sm:text-base md:text-lg text-textMuted mb-4">The strategy concentrates on stabilized multi‑family, strategic land banking, and select development opportunities in growing metros.</p>
+        <p class="text-sm sm:text-base md:text-lg text-textMuted">Diversification across property types and markets is designed to balance downside protection with attractive total return potential.</p>
+      </div>
+      <div class="lg:w-1/2 w-full p-4 sm:p-6 rounded-xl bg-silver/10 shadow-lg border border-silver/50">
+        <h3 class="text-xl sm:text-2xl font-bold mb-6 text-center">Target Allocation</h3>
+        <div class="w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 mx-auto mb-6">
+          <svg id="donutChart" class="w-full h-full" viewBox="0 0 200 200"></svg>
+        </div>
+        <div class="space-y-3">
+          <div class="flex items-center justify-between p-3 rounded-lg bg-primary/40 text-xs sm:text-sm">
+            <span class="flex items-center"><span class="w-3 h-3 rounded-full mr-3" style="background-color:#A31F34;"></span>Multi‑family</span>
+            <span class="font-bold text-gold">45%</span>
+          </div>
+          <div class="flex items-center justify-between p-3 rounded-lg bg-primary/40 text-xs sm:text-sm">
+            <span class="flex items-center"><span class="w-3 h-3 rounded-full mr-3" style="background-color:#D4AF37;"></span>Strategic Land</span>
+            <span class="font-bold text-gold">35%</span>
+          </div>
+          <div class="flex items-center justify-between p-3 rounded-lg bg-primary/40 text-xs sm:text-sm">
+            <span class="flex items-center"><span class="w-3 h-3 rounded-full mr-3" style="background-color:#F4A300;"></span>Development</span>
+            <span class="font-bold text-gold">20%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Performance -->
+  <section class="py-16 md:py-32 bg-secondary/40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-center mb-12">Investment <span class="text-gold">Performance</span></h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
+        <div class="p-6 rounded-xl bg-primary/60 border border-gold/30 text-center hover-lift">
+          <div class="text-2xl sm:text-3xl font-bold text-gold mb-2">12-18%</div>
+          <p class="text-xs sm:text-sm text-textMuted uppercase">Target Returns</p>
+        </div>
+        <div class="p-6 rounded-xl bg-primary/60 border border-gold/30 text-center hover-lift">
+          <div class="text-2xl sm:text-3xl font-bold text-gold mb-2">3-7</div>
+          <p class="text-xs sm:text-sm text-textMuted uppercase">Hold Period (Yrs)</p>
+        </div>
+        <div class="p-6 rounded-xl bg-primary/60 border border-gold/30 text-center hover-lift">
+          <div class="text-2xl sm:text-3xl font-bold text-gold mb-2">8+</div>
+          <p class="text-xs sm:text-sm text-textMuted uppercase">Active Markets</p>
+        </div>
+        <div class="p-6 rounded-xl bg-primary/60 border border-gold/30 text-center hover-lift">
+          <div class="text-2xl sm:text-3xl font-bold text-gold mb-2">$50K</div>
+          <p class="text-xs sm:text-sm text-textMuted uppercase">Minimum</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="py-16 md:py-32">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-center mb-12">Investment <span class="text-gold">Services</span></h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+        <article class="p-6 md:p-8 rounded-xl bg-secondary border-l-4 border-accent shadow-xl hover-lift">
+          <h3 class="text-lg sm:text-xl md:text-2xl font-bold mb-3">Multi‑Family Investments</h3>
+          <p class="text-sm sm:text-base text-textMuted">Curated portfolio of cash‑flowing properties with proven rental demand and appreciation potential.</p>
+        </article>
+        <article class="p-6 md:p-8 rounded-xl bg-silver/15 border-l-4 border-silver/70 shadow-xl hover-lift">
+          <h3 class="text-lg sm:text-xl md:text-2xl font-bold mb-3">Land Acquisition</h3>
+          <p class="text-sm sm:text-base text-textMuted">Strategic land banking in path‑of‑growth corridors positioned for future development.</p>
+        </article>
+        <article class="p-6 md:p-8 rounded-xl bg-secondary border-l-4 border-accent shadow-xl hover-lift">
+          <h3 class="text-lg sm:text-xl md:text-2xl font-bold mb-3">Tokenized Access</h3>
+          <p class="text-sm sm:text-base text-textMuted">Blockchain platform enabling fractional ownership and enhanced liquidity for real estate.</p>
+        </article>
+        <article class="p-6 md:p-8 rounded-xl bg-silver/15 border-l-4 border-silver/70 shadow-xl hover-lift">
+          <h3 class="text-lg sm:text-xl md:text-2xl font-bold mb-3">Market Intelligence</h3>
+          <p class="text-sm sm:text-base text-textMuted">Proprietary analysis providing strategic insights for optimal investment timing.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technology -->
+  <section class="py-16 md:py-32 bg-secondary/40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-center mb-12"><span class="text-gold">Advanced</span> Technology</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <article class="p-6 rounded-xl bg-secondary border border-secondary/80 hover:border-gold/50 hover-lift"><div class="w-6 h-6 text-gold mb-3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.76l1.5-9A2 2 0 0 0 14 9Z"/></svg></div><h3 class="text-lg sm:text-xl font-semibold mb-2">Tokenization</h3><p class="text-xs sm:text-sm text-textMuted">Blockchain infrastructure enabling fractional ownership and digital asset management.</p></article>
+        <article class="p-6 rounded-xl bg-silver/15 border border-silver/50 hover:border-gold/50 hover-lift"><div class="w-6 h-6 text-gold mb-3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><h3 class="text-lg sm:text-xl font-semibold mb-2">Compliance</h3><p class="text-xs sm:text-sm text-textMuted">Integrated regulatory systems ensuring adherence to all applicable regulations.</p></article>
+        <article class="p-6 rounded-xl bg-secondary border border-secondary/80 hover:border-gold/50 hover-lift"><div class="w-6 h-6 text-gold mb-3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s5 7 10 7 10-7 10-7M2 12c0-4.418 5-8 10-8s10 3.582 10 8"/></svg></div><h3 class="text-lg sm:text-xl font-semibold mb-2">Reporting</h3><p class="text-xs sm:text-sm text-textMuted">Real‑time dashboards providing complete investment transparency.</p></article>
+        <article class="p-6 rounded-xl bg-silver/15 border border-silver/50 hover:border-gold/50 hover-lift"><div class="w-6 h-6 text-gold mb-3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div><h3 class="text-lg sm:text-xl font-semibold mb-2">Security</h3><p class="text-xs sm:text-sm text-textMuted">Enterprise security protecting investor data with military-level encryption.</p></article>
+        <article class="p-6 rounded-xl bg-secondary border border-secondary/80 hover:border-gold/50 hover-lift"><div class="w-6 h-6 text-gold mb-3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><h3 class="text-lg sm:text-xl font-semibold mb-2">Portal</h3><p class="text-xs sm:text-sm text-textMuted">Intuitive interface for portfolio management and performance tracking.</p></article>
+        <article class="p-6 rounded-xl bg-silver/15 border border-silver/50 hover:border-gold/50 hover-lift"><div class="w-6 h-6 text-gold mb-3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18M3 3v18h18M18.7 8.3L14.7 12.3 11 8 5.3 15.7"/></svg></div><h3 class="text-lg sm:text-xl font-semibold mb-2">Analytics</h3><p class="text-xs sm:text-sm text-textMuted">Proprietary intelligence driving data‑driven investment decisions.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team -->
+  <section id="team" class="py-16 md:py-32 bg-secondary/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-center mb-4">The <span class="text-gold">Leadership</span> Team</h2>
+      <p class="text-sm sm:text-base md:text-lg text-textMuted text-center mb-12 max-w-2xl mx-auto">Cross‑disciplinary leaders in finance, real estate, energy, and technology.</p>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-6 gap-3 md:gap-6">
+        <article class="team-card p-3 sm:p-4 rounded-xl bg-primary shadow-xl cursor-pointer hover-lift text-center border border-primary/80 transition" data-name="Ahmed Fouad Aly" data-title="Energy Executive" data-img="https://xtact.github.io/irnspr/assets/images/ahmed.jpg" data-bio="Ahmed Fouad Aly is a dynamic C-suite trained executive with over 24 years of global leadership. He has driven transformative change for Fortune 500 companies in North America, Africa, and the Middle East.">
+          <img src="https://xtact.github.io/irnspr/assets/images/ahmed.jpg" alt="Ahmed" class="w-16 sm:w-20 h-16 sm:h-20 object-cover rounded-full mx-auto border-2 border-gold mb-3" width="96" height="96">
+          <h3 class="text-xs sm:text-sm font-bold">Ahmed Fouad Aly</h3>
+          <p class="text-xs text-gold">Energy Executive</p>
+        </article>
+
+        <article class="team-card p-3 sm:p-4 rounded-xl bg-silver/10 shadow-xl cursor-pointer hover-lift text-center border border-silver/60 transition" data-name="Colby Fitch" data-title="Tech Entrepreneur" data-img="https://xtact.github.io/irnspr/assets/images/colby.jpg" data-bio="Colby Fitch is a veteran tech entrepreneur. Beginning in 1996 with Teledesic, he pioneered global internet access through satellite technology. He later founded Good Life Homes.">
+          <img src="https://xtact.github.io/irnspr/assets/images/colby.jpg" alt="Colby" class="w-16 sm:w-20 h-16 sm:h-20 object-cover rounded-full mx-auto border-2 border-silver mb-3" width="96" height="96">
+          <h3 class="text-xs sm:text-sm font-bold">Colby Fitch</h3>
+          <p class="text-xs text-gold">Tech Entrepreneur</p>
+        </article>
+
+        <article class="team-card p-3 sm:p-4 rounded-xl bg-primary shadow-xl cursor-pointer hover-lift text-center border border-primary/80 transition" data-name="Eric Fitch" data-title="Real Estate Leader" data-img="https://xtact.github.io/irnspr/assets/images/eric.jpeg" data-bio="Eric Fitch has 25 years of experience with $3.5B in real estate sales. His ventures consistently deliver 15-20% average returns to investors.">
+          <img src="https://xtact.github.io/irnspr/assets/images/eric.jpeg" alt="Eric" class="w-16 sm:w-20 h-16 sm:h-20 object-cover rounded-full mx-auto border-2 border-gold mb-3" width="96" height="96">
+          <h3 class="text-xs sm:text-sm font-bold">Eric Fitch</h3>
+          <p class="text-xs text-gold">Real Estate Leader</p>
+        </article>
+
+        <article class="team-card p-3 sm:p-4 rounded-xl bg-silver/10 shadow-xl cursor-pointer hover-lift text-center border border-silver/60 transition" data-name="Aaron Gowatch" data-title="Engineering Expert" data-img="https://xtact.github.io/irnspr/assets/images/aaron.jpg" data-bio="Aaron is co-founder and Chief Architect of Biba Systems (acquired as Amazon Chime). At AWS, he led initiatives in collaboration and high-assurance systems.">
+          <img src="https://xtact.github.io/irnspr/assets/images/aaron.jpg" alt="Aaron" class="w-16 sm:w-20 h-16 sm:h-20 object-cover rounded-full mx-auto border-2 border-silver mb-3" width="96" height="96">
+          <h3 class="text-xs sm:text-sm font-bold">Aaron Gowatch</h3>
+          <p class="text-xs text-gold">Engineering Expert</p>
+        </article>
+
+        <article class="team-card p-3 sm:p-4 rounded-xl bg-primary shadow-xl cursor-pointer hover-lift text-center border border-primary/80 transition" data-name="Bryan Hurlburt" data-title="Strategic Operations" data-img="https://xtact.github.io/irnspr/assets/images/bryan.jpg" data-bio="Bryan brings extensive experience in strategic operations and business development within real estate and investment sectors.">
+          <img src="https://xtact.github.io/irnspr/assets/images/bryan.jpg" alt="Bryan" class="w-16 sm:w-20 h-16 sm:h-20 object-cover rounded-full mx-auto border-2 border-gold mb-3" width="96" height="96">
+          <h3 class="text-xs sm:text-sm font-bold">Bryan Hurlburt</h3>
+          <p class="text-xs text-gold">Operations</p>
+        </article>
+
+        <article class="team-card p-3 sm:p-4 rounded-xl bg-silver/10 shadow-xl cursor-pointer hover-lift text-center border border-silver/60 transition" data-name="Tori Fitch" data-title="Investor Relations" data-img="https://xtact.github.io/irnspr/assets/images/tori.jpg" data-bio="Tori leads investor relations with focus on transparent communication and building lasting partnerships.">
+          <img src="https://xtact.github.io/irnspr/assets/images/tori.jpg" alt="Tori" class="w-16 sm:w-20 h-16 sm:h-20 object-cover rounded-full mx-auto border-2 border-silver mb-3" width="96" height="96">
+          <h3 class="text-xs sm:text-sm font-bold">Tori Fitch</h3>
+          <p class="text-xs text-gold">Investor Relations</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bio Modal -->
+  <div id="bioModal" class="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4 hidden">
+    <article class="bg-secondary/95 rounded-2xl shadow-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto border border-silver/40">
+      <div class="p-6 sticky top-0 bg-secondary/95 border-b border-silver/40 flex justify-between items-center">
+        <h2 id="modalName" class="text-2xl font-bold"></h2>
+        <button onclick="closeModal()" class="text-textLight hover:text-gold"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg></button>
+      </div>
+      <div class="p-6">
+        <img id="modalImage" src="" alt="" class="w-28 h-28 object-cover rounded-full mx-auto border-4 border-gold mb-6">
+        <p id="modalTitle" class="text-gold text-lg font-semibold text-center mb-4"></p>
+        <p id="modalBio" class="text-sm text-textMuted leading-relaxed"></p>
+      </div>
+    </article>
+  </div>
+
+  <!-- Contact -->
+  <section id="contact" class="py-16 md:py-32 bg-primary border-t border-silver/40">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold mb-4">Ready to Invest?</h2>
+      <p class="text-sm sm:text-base md:text-lg text-textMuted mb-8">Share your objectives and timeline. Our team will follow up with a tailored overview of opportunities.</p>
+      <a href="mailto:invest@ironspur.com" class="inline-block bg-gold text-primary font-semibold py-2 sm:py-3 px-6 sm:px-8 rounded-full text-sm sm:text-base hover:bg-amber transition">Connect With Our Team</a>
+    </div>
+  </section>
+</main>
+
+<script>
+// Donut Chart
+function createDonutChart() {
+  const svg = document.getElementById('donutChart');
+  if (!svg) return;
+  
+  const data = [45, 35, 20];
+  const colors = ['#A31F34', '#D4AF37', '#F4A300'];
+  const center = 100, radius = 80, inner = 50;
+  let angle = -Math.PI / 2;
+  
+  data.forEach((pct, idx) => {
+    const sliceAngle = (pct / 100) * 2 * Math.PI;
+    const x1 = center + radius * Math.cos(angle);
+    const y1 = center + radius * Math.sin(angle);
+    const x2 = center + radius * Math.cos(angle + sliceAngle);
+    const y2 = center + radius * Math.sin(angle + sliceAngle);
+    const x3 = center + inner * Math.cos(angle + sliceAngle);
+    const y3 = center + inner * Math.sin(angle + sliceAngle);
+    const x4 = center + inner * Math.cos(angle);
+    const y4 = center + inner * Math.sin(angle);
+    const large = sliceAngle > Math.PI ? 1 : 0;
+    
+    const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    path.setAttribute('d', `M ${x1} ${y1} A ${radius} ${radius} 0 ${large} 1 ${x2} ${y2} L ${x3} ${y3} A ${inner} ${inner} 0 ${large} 0 ${x4} ${y4} Z`);
+    path.setAttribute('fill', colors[idx]);
+    path.setAttribute('stroke', '#070F2B');
+    path.setAttribute('stroke-width', '2');
+    svg.appendChild(path);
+    angle += sliceAngle;
+  });
+  
+  const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+  circle.setAttribute('cx', center);
+  circle.setAttribute('cy', center);
+  circle.setAttribute('r', inner);
+  circle.setAttribute('fill', '#070F2B');
+  circle.setAttribute('stroke', '#D4AF37');
+  circle.setAttribute('stroke-width', '2');
+  svg.appendChild(circle);
+}
+
+// Team Modals
+function openModal(name, title, img, bio) {
+  document.getElementById('modalName').textContent = name;
+  document.getElementById('modalTitle').textContent = title;
+  document.getElementById('modalImage').src = img;
+  document.getElementById('modalBio').textContent = bio;
+  document.getElementById('bioModal').classList.remove('hidden');
+}
+
+function closeModal() {
+  document.getElementById('bioModal').classList.add('hidden');
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  createDonutChart();
+  document.querySelectorAll('.team-card').forEach(card => {
+    card.addEventListener('click', function() {
+      openModal(this.dataset.name, this.dataset.title, this.dataset.img, this.dataset.bio);
+    });
+  });
+});
+
+document.getElementById('bioModal')?.addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeModal();
+});
+</script>
+
 </body>
 </html>
