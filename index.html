@@ -1,139 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en"><head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Iron Spur Equity - Transforming Real Estate Investment</title>
 
-  <!-- Tailwind CSS - Direct CDN with Play plugin for custom colors -->
+  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <style>
-    /* Define CSS variables for custom colors */
-    :root {
-      --primary-bg: #070F2B;
-      --secondary-bg: #1B2A4A;
-      --accent-color: #A31F34;
-      --gold: #D4AF37;
-      --amber: #F4A300;
-      --silver: #A8AAAF;
-      --text-light: #E0E7FF;
-      --text-gray: #9CA3AF;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background-color: var(--primary-bg);
-      color: var(--text-light);
-      line-height: 1.6;
-    }
-
-    /* Scrollbar */
-    ::-webkit-scrollbar {
-      width: 10px;
-    }
-
-    ::-webkit-scrollbar-track {
-      background: var(--secondary-bg);
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: var(--gold);
-      border-radius: 5px;
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-      background: var(--accent-color);
-    }
-
-    /* Hero pattern background */
-    .hero-pattern {
-      background:
-        radial-gradient(#1B2A4A 1px, transparent 1px),
-        radial-gradient(#1B2A4A 1px, transparent 1px);
-      background-size: 40px 40px;
-      background-position: 0 0, 20px 20px;
-    }
-
-    /* Hover lift */
-    .hover-lift {
-      transition: transform 200ms ease-out, box-shadow 200ms ease-out;
-    }
-
-    .hover-lift:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 20px 40px rgba(163, 31, 52, 0.25);
-    }
-
-    /* Text color utilities */
-    .text-primary-bg { color: var(--primary-bg); }
-    .text-secondary-bg { color: var(--secondary-bg); }
-    .text-accent { color: var(--accent-color); }
-    .text-gold { color: var(--gold); }
-    .text-amber { color: var(--amber); }
-    .text-silver { color: var(--silver); }
-    .text-textLight { color: var(--text-light); }
-    .text-textMuted { color: var(--text-gray); }
-
-    /* Background utilities */
-    .bg-primary-bg { background-color: var(--primary-bg); }
-    .bg-secondary-bg { background-color: var(--secondary-bg); }
-    .bg-accent { background-color: var(--accent-color); }
-    .bg-gold { background-color: var(--gold); }
-    .bg-amber { background-color: var(--amber); }
-    .bg-silver { background-color: var(--silver); opacity: 0.15; }
-    .bg-silver-10 { background-color: var(--silver); opacity: 0.1; }
-
-    /* Border utilities */
-    .border-accent { border-color: var(--accent-color); }
-    .border-gold { border-color: var(--gold); }
-    .border-silver { border-color: var(--silver); }
-
-    /* Animations */
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#070F2B',
+            secondary: '#1B2A4A',
+            accent: '#A31F34',
+            gold: '#D4AF37',
+            amber: '#F4A300',
+            silver: '#A8AAAF',
+            textLight: '#E0E7FF',
+            textMuted: '#9CA3AF'
+          }
+        }
       }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
+    };
+  </script>
 
-    @keyframes bounce-smooth {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-8px); }
-    }
-
-    .animate-bounce-smooth {
-      animation: bounce-smooth 2s infinite;
-    }
-
-    /* Opacity variants */
-    .opacity-10 { opacity: 0.1; }
-    .opacity-15 { opacity: 0.15; }
-    .opacity-40 { opacity: 0.4; }
-    .opacity-60 { opacity: 0.6; }
-    .opacity-80 { opacity: 0.8; }
-    .opacity-95 { opacity: 0.95; }
-  </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="bg-primary-bg text-textLight">
+<body class="antialiased bg-primary text-textLight">
 
-  <!-- Header -->
-  <header class="sticky top-0 z-40 bg-primary-bg shadow-lg border-b border-secondary-bg" style="background-color: rgba(7, 15, 43, 0.95); backdrop-filter: blur(4px);">
+  <!-- Header / Navigation -->
+  <header class="sticky top-0 z-40 bg-primary/95 backdrop-blur-sm shadow-lg border-b border-secondary">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 sm:py-3 flex items-center justify-between">
-      <div class="flex items-center space-x-2 sm:space-x-3 px-2 sm:px-3 py-1 rounded-full border border-silver" style="background-color: rgba(168, 170, 175, 0.1);">
+      <div class="flex items-center space-x-2 sm:space-x-3 px-2 sm:px-3 py-1 rounded-full bg-silver/10 border border-silver/40">
         <img
           src="https://xtact.github.io/irnspr/assets/images/iron_logo.jpg"
           alt="Iron Spur Equity logo"
@@ -148,8 +49,7 @@
       </div>
       <a
         href="#contact"
-        class="font-semibold py-2 px-4 text-xs sm:text-sm rounded-full transition duration-300 hover-lift shadow-lg"
-        style="background-color: var(--accent-color); color: white;"
+        class="bg-accent text-white font-semibold py-2 px-4 text-xs sm:text-sm rounded-full hover:bg-red-700 transition duration-300 hover-lift shadow-lg"
       >
         Invest Now
       </a>
@@ -158,7 +58,8 @@
 
   <main>
     <!-- Hero Section -->
-    <section id="hero" class="relative overflow-hidden pt-10 pb-12 sm:pt-12 sm:pb-16 md:pt-20 md:pb-24 lg:pt-32 lg:pb-40 text-center" style="background-color: var(--primary-bg);">
+    <section id="hero" class="relative overflow-hidden pt-10 pb-12 sm:pt-12 sm:pb-16 md:pt-20 md:pb-24 lg:pt-32 lg:pb-40 text-center">
+      <!-- Animated Grid Background -->
       <div class="absolute inset-0 hero-pattern opacity-10"></div>
       <div class="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/80"></div>
 
@@ -175,17 +76,17 @@
           Access institutional‑grade multi‑family and land opportunities in high‑growth markets, delivered via a secure, tokenized investment platform.
         </p>
 
-        <!-- Stats -->
+        <!-- Proof Stats -->
         <div class="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 mb-6 sm:mb-8 text-xs sm:text-sm md:text-base text-textMuted">
-          <div class="px-3 sm:px-4 py-2 sm:py-3 rounded-lg border border-silver" style="background-color: rgba(27, 42, 74, 0.6);">
+          <div class="px-3 sm:px-4 py-2 sm:py-3 rounded-lg bg-secondary/60 border border-silver/40">
             <div class="text-xl sm:text-2xl lg:text-3xl font-bold text-gold">25+</div>
             <div class="uppercase tracking-wider text-xs">Leadership Experience</div>
           </div>
-          <div class="px-3 sm:px-4 py-2 sm:py-3 rounded-lg border border-silver" style="background-color: rgba(27, 42, 74, 0.6);">
+          <div class="px-3 sm:px-4 py-2 sm:py-3 rounded-lg bg-secondary/60 border border-silver/40">
             <div class="text-xl sm:text-2xl lg:text-3xl font-bold text-gold">$3.5B+</div>
             <div class="uppercase tracking-wider text-xs">Real Estate Transactions</div>
           </div>
-          <div class="px-3 sm:px-4 py-2 sm:py-3 rounded-lg border border-silver" style="background-color: rgba(27, 42, 74, 0.6);">
+          <div class="px-3 sm:px-4 py-2 sm:py-3 rounded-lg bg-secondary/60 border border-silver/40">
             <div class="text-xl sm:text-2xl lg:text-3xl font-bold text-gold">15–20%</div>
             <div class="uppercase tracking-wider text-xs">Historical Returns</div>
           </div>
@@ -193,28 +94,27 @@
 
         <a
           href="#focus"
-          class="inline-block font-bold py-2 sm:py-3 px-6 sm:px-8 rounded-full text-sm sm:text-base lg:text-lg transition duration-300 hover-lift shadow-xl"
-          style="background-color: var(--gold); color: var(--primary-bg);"
+          class="inline-block bg-gold text-primary font-bold py-2 sm:py-3 px-6 sm:px-8 rounded-full text-sm sm:text-base lg:text-lg hover:bg-amber transition duration-300 hover-lift shadow-xl"
         >
           Explore Opportunities
         </a>
       </div>
 
       <!-- Scroll Indicator -->
-      <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce-smooth">
+      <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
         <div class="text-gold text-xs mb-2">Discover more</div>
-        <svg class="w-6 h-6 text-gold mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg class="w-6 h-6 text-gold mx-auto animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
         </svg>
       </div>
     </section>
 
     <!-- Strategy Pillars -->
-    <section id="strategy" class="py-12 sm:py-16 md:py-24" style="background-color: rgba(27, 42, 74, 0.6);">
+    <section id="strategy" class="py-12 sm:py-16 md:py-24 bg-secondary/60">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           
-          <article class="p-6 rounded-xl hover-lift transition-all duration-300 border" style="background-color: var(--secondary-bg); border-color: var(--accent-color); border-width: 1px; opacity: 0.2; border-opacity: 1;">
+          <article class="p-6 rounded-xl bg-secondary border border-accent/20 hover-lift transition-all duration-300">
             <div class="w-8 h-8 text-gold mb-4">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <rect width="18" height="18" x="3" y="3" rx="2"></rect>
@@ -227,7 +127,7 @@
             </p>
           </article>
 
-          <article class="p-6 rounded-xl hover-lift transition-all duration-300 border" style="background-color: rgba(168, 170, 175, 0.1); border-color: var(--silver); border-width: 1px;">
+          <article class="p-6 rounded-xl bg-silver/15 border border-silver/50 hover-lift transition-all duration-300">
             <div class="w-8 h-8 text-gold mb-4">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="m18 15-6-6-6 6"></path>
@@ -239,7 +139,7 @@
             </p>
           </article>
 
-          <article class="p-6 rounded-xl hover-lift transition-all duration-300 border" style="background-color: var(--secondary-bg); border-color: var(--accent-color); border-width: 1px; opacity: 0.2; border-opacity: 1;">
+          <article class="p-6 rounded-xl bg-secondary border border-accent/20 hover-lift transition-all duration-300">
             <div class="w-8 h-8 text-gold mb-4">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <circle cx="12" cy="12" r="10"></circle>
@@ -252,7 +152,7 @@
             </p>
           </article>
 
-          <article class="p-6 rounded-xl hover-lift transition-all duration-300 border" style="background-color: rgba(168, 170, 175, 0.1); border-color: var(--silver); border-width: 1px;">
+          <article class="p-6 rounded-xl bg-silver/15 border border-silver/50 hover-lift transition-all duration-300">
             <div class="w-8 h-8 text-gold mb-4">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M12 2a10 10 0 0 1 10 10c0 4.418-3.582 8-8 8s-8-3.582-8-8A10 10 0 0 1 12 2z"></path>
@@ -269,7 +169,7 @@
     </section>
 
     <!-- Investment Focus + Chart -->
-    <section id="focus" class="py-12 sm:py-16 md:py-24" style="background-color: var(--primary-bg);">
+    <section id="focus" class="py-12 sm:py-16 md:py-24">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row gap-8 md:gap-12 items-center">
         <div class="lg:w-1/2">
           <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4 sm:mb-6">
@@ -283,27 +183,27 @@
           </p>
         </div>
 
-        <div class="lg:w-1/2 w-full p-4 sm:p-6 rounded-xl shadow-lg border border-silver" style="background-color: rgba(168, 170, 175, 0.1);">
-          <h3 class="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-center">Target Allocation</h3>
+        <div class="lg:w-1/2 w-full p-4 sm:p-6 rounded-xl bg-silver/10 shadow-lg border border-silver/50">
+          <h3 class="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-center text-textLight">Target Allocation</h3>
           <div class="w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 mx-auto mb-4 sm:mb-6 relative">
             <svg id="donutChart" class="w-full h-full" viewBox="0 0 200 200"></svg>
           </div>
           <div class="space-y-2 sm:space-y-3">
-            <div class="flex items-center justify-between p-2 sm:p-3 rounded-lg text-xs sm:text-sm" style="background-color: rgba(7, 15, 43, 0.4);">
+            <div class="flex items-center justify-between p-2 sm:p-3 rounded-lg bg-primary/40 text-xs sm:text-sm text-textMuted">
               <span class="flex items-center">
                 <span class="w-3 h-3 rounded-full mr-2 sm:mr-3" style="background-color:#A31F34;"></span>
                 Multi‑family Properties
               </span>
               <span class="font-bold text-gold">45%</span>
             </div>
-            <div class="flex items-center justify-between p-2 sm:p-3 rounded-lg text-xs sm:text-sm" style="background-color: rgba(7, 15, 43, 0.4);">
+            <div class="flex items-center justify-between p-2 sm:p-3 rounded-lg bg-primary/40 text-xs sm:text-sm text-textMuted">
               <span class="flex items-center">
                 <span class="w-3 h-3 rounded-full mr-2 sm:mr-3" style="background-color:#D4AF37;"></span>
                 Strategic Land
               </span>
               <span class="font-bold text-gold">35%</span>
             </div>
-            <div class="flex items-center justify-between p-2 sm:p-3 rounded-lg text-xs sm:text-sm" style="background-color: rgba(7, 15, 43, 0.4);">
+            <div class="flex items-center justify-between p-2 sm:p-3 rounded-lg bg-primary/40 text-xs sm:text-sm text-textMuted">
               <span class="flex items-center">
                 <span class="w-3 h-3 rounded-full mr-2 sm:mr-3" style="background-color:#F4A300;"></span>
                 Development
@@ -316,25 +216,25 @@
     </section>
 
     <!-- Performance Metrics -->
-    <section class="py-12 sm:py-16 md:py-24" style="background-color: rgba(27, 42, 74, 0.4);">
+    <section class="py-12 sm:py-16 md:py-24 bg-secondary/40">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-center mb-8 md:mb-12 text-textLight">
           Investment <span class="text-gold">Performance Metrics</span>
         </h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
-          <div class="p-4 sm:p-6 rounded-xl hover-lift text-center border" style="background-color: rgba(7, 15, 43, 0.6); border-color: var(--gold); border-opacity: 0.3;">
+          <div class="p-4 sm:p-6 rounded-xl bg-primary/60 border border-gold/30 text-center hover-lift">
             <div class="text-2xl sm:text-3xl font-bold text-gold mb-2">12-18%</div>
             <p class="text-xs sm:text-sm text-textMuted uppercase tracking-wider">Target Annual Returns</p>
           </div>
-          <div class="p-4 sm:p-6 rounded-xl hover-lift text-center border" style="background-color: rgba(7, 15, 43, 0.6); border-color: var(--gold); border-opacity: 0.3;">
+          <div class="p-4 sm:p-6 rounded-xl bg-primary/60 border border-gold/30 text-center hover-lift">
             <div class="text-2xl sm:text-3xl font-bold text-gold mb-2">3-7</div>
             <p class="text-xs sm:text-sm text-textMuted uppercase tracking-wider">Average Hold Period (Years)</p>
           </div>
-          <div class="p-4 sm:p-6 rounded-xl hover-lift text-center border" style="background-color: rgba(7, 15, 43, 0.6); border-color: var(--gold); border-opacity: 0.3;">
+          <div class="p-4 sm:p-6 rounded-xl bg-primary/60 border border-gold/30 text-center hover-lift">
             <div class="text-2xl sm:text-3xl font-bold text-gold mb-2">8+</div>
             <p class="text-xs sm:text-sm text-textMuted uppercase tracking-wider">Active Markets</p>
           </div>
-          <div class="p-4 sm:p-6 rounded-xl hover-lift text-center border" style="background-color: rgba(7, 15, 43, 0.6); border-color: var(--gold); border-opacity: 0.3;">
+          <div class="p-4 sm:p-6 rounded-xl bg-primary/60 border border-gold/30 text-center hover-lift">
             <div class="text-2xl sm:text-3xl font-bold text-gold mb-2">$50K</div>
             <p class="text-xs sm:text-sm text-textMuted uppercase tracking-wider">Minimum Investment</p>
           </div>
@@ -343,29 +243,29 @@
     </section>
 
     <!-- Services -->
-    <section id="services" class="py-12 sm:py-16 md:py-24" style="background-color: var(--primary-bg);">
+    <section id="services" class="py-12 sm:py-16 md:py-24">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-center mb-8 md:mb-12 text-textLight">
           Investment <span class="text-gold">Services</span>
         </h2>
         
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
-          <article class="p-6 md:p-8 rounded-xl hover-lift shadow-xl border-l-4" style="background-color: var(--secondary-bg); border-color: var(--accent-color);">
+          <article class="p-6 md:p-8 rounded-xl bg-secondary border-l-4 border-accent shadow-xl hover-lift">
             <h3 class="text-lg sm:text-xl md:text-2xl font-bold mb-2 sm:mb-3 text-textLight">Multi‑Family Investments</h3>
             <p class="text-sm sm:text-base text-textMuted">Curated portfolio of cash‑flowing multi‑family properties in high‑growth markets with proven rental demand and appreciation potential.</p>
           </article>
 
-          <article class="p-6 md:p-8 rounded-xl hover-lift shadow-xl border-l-4" style="background-color: rgba(168, 170, 175, 0.1); border-color: var(--silver);">
+          <article class="p-6 md:p-8 rounded-xl bg-silver/15 border-l-4 border-silver/70 shadow-xl hover-lift">
             <h3 class="text-lg sm:text-xl md:text-2xl font-bold mb-2 sm:mb-3 text-textLight">Land Acquisition Strategy</h3>
             <p class="text-sm sm:text-base text-textMuted">Strategic land banking in path‑of‑growth corridors, positioned for future development and significant value appreciation.</p>
           </article>
 
-          <article class="p-6 md:p-8 rounded-xl hover-lift shadow-xl border-l-4" style="background-color: var(--secondary-bg); border-color: var(--accent-color);">
+          <article class="p-6 md:p-8 rounded-xl bg-secondary border-l-4 border-accent shadow-xl hover-lift">
             <h3 class="text-lg sm:text-xl md:text-2xl font-bold mb-2 sm:mb-3 text-textLight">Tokenized Investment Access</h3>
             <p class="text-sm sm:text-base text-textMuted">Revolutionary blockchain‑based investment platform enabling fractional ownership and enhanced liquidity for real estate assets.</p>
           </article>
 
-          <article class="p-6 md:p-8 rounded-xl hover-lift shadow-xl border-l-4" style="background-color: rgba(168, 170, 175, 0.1); border-color: var(--silver);">
+          <article class="p-6 md:p-8 rounded-xl bg-silver/15 border-l-4 border-silver/70 shadow-xl hover-lift">
             <h3 class="text-lg sm:text-xl md:text-2xl font-bold mb-2 sm:mb-3 text-textLight">Industry Intelligence</h3>
             <p class="text-sm sm:text-base text-textMuted">Comprehensive market analysis and proprietary intelligence providing strategic insights for optimal investment timing.</p>
           </article>
@@ -374,14 +274,14 @@
     </section>
 
     <!-- Technology Platform -->
-    <section id="technology" class="py-12 sm:py-16 md:py-24" style="background-color: rgba(27, 42, 74, 0.4);">
+    <section id="technology" class="py-12 sm:py-16 md:py-24 bg-secondary/40">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-center mb-8 md:mb-12 text-textLight">
           <span class="text-gold">Advanced</span> Technology Platform
         </h2>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
-          <article class="p-6 rounded-xl hover-lift transition-all duration-300 border" style="background-color: var(--secondary-bg); border-color: var(--secondary-bg);">
+          <article class="p-6 rounded-xl bg-secondary border border-secondary/80 hover:border-gold/50 hover-lift transition-all duration-300">
             <div class="w-6 h-6 text-gold mb-3">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.76l1.5-9A2 2 0 0 0 14 9Z"></path>
@@ -391,7 +291,7 @@
             <p class="text-xs sm:text-sm text-textMuted">Cutting‑edge blockchain infrastructure enabling fractional ownership and seamless digital asset management.</p>
           </article>
 
-          <article class="p-6 rounded-xl hover-lift transition-all duration-300 border" style="background-color: rgba(168, 170, 175, 0.1); border-color: var(--silver);">
+          <article class="p-6 rounded-xl bg-silver/15 border border-silver/50 hover:border-gold/50 hover-lift transition-all duration-300">
             <div class="w-6 h-6 text-gold mb-3">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
@@ -401,7 +301,7 @@
             <p class="text-xs sm:text-sm text-textMuted">Integrated regulatory compliance systems ensuring adherence to all applicable securities and real estate regulations.</p>
           </article>
 
-          <article class="p-6 rounded-xl hover-lift transition-all duration-300 border" style="background-color: var(--secondary-bg); border-color: var(--secondary-bg);">
+          <article class="p-6 rounded-xl bg-secondary border border-secondary/80 hover:border-gold/50 hover-lift transition-all duration-300">
             <div class="w-6 h-6 text-gold mb-3">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M2 12s5 7 10 7 10-7 10-7M2 12c0-4.418 5-8 10-8s10 3.582 10 8"></path>
@@ -411,7 +311,7 @@
             <p class="text-xs sm:text-sm text-textMuted">Real‑time performance dashboards and comprehensive reporting providing complete investment transparency.</p>
           </article>
 
-          <article class="p-6 rounded-xl hover-lift transition-all duration-300 border" style="background-color: rgba(168, 170, 175, 0.1); border-color: var(--silver);">
+          <article class="p-6 rounded-xl bg-silver/15 border border-silver/50 hover:border-gold/50 hover-lift transition-all duration-300">
             <div class="w-6 h-6 text-gold mb-3">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
@@ -422,7 +322,7 @@
             <p class="text-xs sm:text-sm text-textMuted">Enterprise‑grade security protocols protecting investor data and digital assets with military‑level encryption.</p>
           </article>
           
-          <article class="p-6 rounded-xl hover-lift transition-all duration-300 border" style="background-color: var(--secondary-bg); border-color: var(--secondary-bg);">
+          <article class="p-6 rounded-xl bg-secondary border border-secondary/80 hover:border-gold/50 hover-lift transition-all duration-300">
             <div class="w-6 h-6 text-gold mb-3">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
@@ -433,7 +333,7 @@
             <p class="text-xs sm:text-sm text-textMuted">Intuitive investor interface providing portfolio management, performance tracking, and investment opportunities.</p>
           </article>
           
-          <article class="p-6 rounded-xl hover-lift transition-all duration-300 border" style="background-color: rgba(168, 170, 175, 0.1); border-color: var(--silver);">
+          <article class="p-6 rounded-xl bg-silver/15 border border-silver/50 hover:border-gold/50 hover-lift transition-all duration-300">
             <div class="w-6 h-6 text-gold mb-3">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M3 3v18h18M3 3v18h18M18.7 8.3L14.7 12.3 11 8 5.3 15.7"></path>
@@ -447,7 +347,7 @@
     </section>
 
     <!-- Leadership Team -->
-    <section id="team" class="py-12 sm:py-16 md:py-24" style="background-color: rgba(27, 42, 74, 0.6);">
+    <section id="team" class="py-12 sm:py-16 md:py-24 bg-secondary/60">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-center mb-4 text-textLight">
           The <span class="text-gold">Leadership</span> Team
@@ -458,62 +358,68 @@
 
         <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-6 gap-3 md:gap-6">
           
-          <article class="team-card p-3 sm:p-4 rounded-xl shadow-xl cursor-pointer hover-lift text-center border transition-all duration-300" style="background-color: var(--primary-bg); border-width: 1px; border-color: var(--primary-bg);"
+          <!-- Ahmed Fouad Aly -->
+          <article class="team-card p-3 sm:p-4 rounded-xl bg-primary shadow-xl cursor-pointer hover-lift text-center border border-primary/80 transition-all duration-300 hover:border-gold/50"
                    data-name="Ahmed Fouad Aly"
                    data-title="Energy Executive"
-                   data-img="https://xtact.github.io/IRNSPR/assets/images/ahmed.jpg"
+                   data-img="https://xtact.github.io/irnspr/assets/images/ahmed.jpg"
                    data-bio="Ahmed Fouad Aly is a dynamic C-suite trained executive with over 24 years of global leadership across the energy sector. He has driven transformative change for Fortune 500 companies in North America, Africa, and the Middle East, advancing operational excellence, digital innovation, and organizational growth.">
-            <img src="https://xtact.github.io/IRNSPR/assets/images/ahmed.jpg" alt="Portrait of Ahmed Fouad Aly" class="w-16 sm:w-20 h-16 sm:h-20 object-cover rounded-full mx-auto border-2 mb-2 sm:mb-3" style="border-color: var(--gold);" width="96" height="96" loading="lazy">
+            <img src="https://xtact.github.io/irnspr/assets/images/ahmed.jpg" alt="Portrait of Ahmed Fouad Aly" class="w-16 sm:w-20 h-16 sm:h-20 object-cover rounded-full mx-auto border-2 border-gold mb-2 sm:mb-3" width="96" height="96" loading="lazy">
             <h3 class="text-xs sm:text-sm font-bold text-textLight">Ahmed Fouad Aly</h3>
             <p class="text-xs text-gold mb-1">Energy Executive</p>
           </article>
 
-          <article class="team-card p-3 sm:p-4 rounded-xl shadow-xl cursor-pointer hover-lift text-center border transition-all duration-300" style="background-color: rgba(168, 170, 175, 0.1); border-width: 1px; border-color: var(--silver);"
+          <!-- Colby Fitch -->
+          <article class="team-card p-3 sm:p-4 rounded-xl bg-silver/10 shadow-xl cursor-pointer hover-lift text-center border border-silver/60 transition-all duration-300 hover:border-gold/50"
                    data-name="Colby Fitch"
                    data-title="Tech Entrepreneur & Innovator"
-                   data-img="https://xtact.github.io/IRNSPR/assets/images/colby.jpg"
+                   data-img="https://xtact.github.io/irnspr/assets/images/colby.jpg"
                    data-bio="Colby Fitch is a veteran tech entrepreneur and visionary innovator. Beginning in 1996 with Teledesic, he helped pioneer global internet access through low-earth orbit satellite technology. He later founded Good Life Homes, one of the first residential real estate marketplaces.">
-            <img src="https://xtact.github.io/IRNSPR/assets/images/colby.jpg" alt="Portrait of Colby Fitch" class="w-16 sm:w-20 h-16 sm:h-20 object-cover rounded-full mx-auto border-2 mb-2 sm:mb-3" style="border-color: var(--silver);" width="96" height="96" loading="lazy">
+            <img src="https://xtact.github.io/irnspr/assets/images/colby.jpg" alt="Portrait of Colby Fitch" class="w-16 sm:w-20 h-16 sm:h-20 object-cover rounded-full mx-auto border-2 border-silver mb-2 sm:mb-3" width="96" height="96" loading="lazy">
             <h3 class="text-xs sm:text-sm font-bold text-textLight">Colby Fitch</h3>
             <p class="text-xs text-gold mb-1">Tech Entrepreneur</p>
           </article>
           
-          <article class="team-card p-3 sm:p-4 rounded-xl shadow-xl cursor-pointer hover-lift text-center border transition-all duration-300" style="background-color: var(--primary-bg); border-width: 1px; border-color: var(--primary-bg);"
+          <!-- Eric Fitch -->
+          <article class="team-card p-3 sm:p-4 rounded-xl bg-primary shadow-xl cursor-pointer hover-lift text-center border border-primary/80 transition-all duration-300 hover:border-gold/50"
                    data-name="Eric Fitch"
                    data-title="Visionary Real Estate Leader"
-                   data-img="https://xtact.github.io/IRNSPR/assets/images/eric.jpeg"
+                   data-img="https://xtact.github.io/irnspr/assets/images/eric.jpeg"
                    data-bio="Eric Fitch is a visionary leader with 25 years of experience and $3.5B in real estate sales. A builder, developer, agent, and investor, he has shaped a portfolio that reflects both innovation and impact. His ventures deliver investors 15-20% average returns.">
-            <img src="https://xtact.github.io/IRNSPR/assets/images/eric.jpeg" alt="Portrait of Eric Fitch" class="w-16 sm:w-20 h-16 sm:h-20 object-cover rounded-full mx-auto border-2 mb-2 sm:mb-3" style="border-color: var(--gold);" width="96" height="96" loading="lazy">
+            <img src="https://xtact.github.io/irnspr/assets/images/eric.jpeg" alt="Portrait of Eric Fitch" class="w-16 sm:w-20 h-16 sm:h-20 object-cover rounded-full mx-auto border-2 border-gold mb-2 sm:mb-3" width="96" height="96" loading="lazy">
             <h3 class="text-xs sm:text-sm font-bold text-textLight">Eric Fitch</h3>
             <p class="text-xs text-gold mb-1">Real Estate Leader</p>
           </article>
 
-          <article class="team-card p-3 sm:p-4 rounded-xl shadow-xl cursor-pointer hover-lift text-center border transition-all duration-300" style="background-color: rgba(168, 170, 175, 0.1); border-width: 1px; border-color: var(--silver);"
+          <!-- Aaron Gowatch -->
+          <article class="team-card p-3 sm:p-4 rounded-xl bg-silver/10 shadow-xl cursor-pointer hover-lift text-center border border-silver/60 transition-all duration-300 hover:border-gold/50"
                    data-name="Aaron Gowatch"
                    data-title="Technology & Engineering Expert"
-                   data-img="https://xtact.github.io/IRNSPR/assets/images/aaron.jpg"
+                   data-img="https://xtact.github.io/irnspr/assets/images/aaron.jpg"
                    data-bio="Aaron is a senior technology and engineering leader, co-founder and Chief Architect of Biba Systems (acquired as Amazon Chime). At AWS, he led initiatives in collaboration, Alexa Identity, satellite data, and high-assurance systems. Holder of multiple patents.">
-            <img src="https://xtact.github.io/IRNSPR/assets/images/aaron.jpg" alt="Portrait of Aaron Gowatch" class="w-16 sm:w-20 h-16 sm:h-20 object-cover rounded-full mx-auto border-2 mb-2 sm:mb-3" style="border-color: var(--silver);" width="96" height="96" loading="lazy">
+            <img src="https://xtact.github.io/irnspr/assets/images/aaron.jpg" alt="Portrait of Aaron Gowatch" class="w-16 sm:w-20 h-16 sm:h-20 object-cover rounded-full mx-auto border-2 border-silver mb-2 sm:mb-3" width="96" height="96" loading="lazy">
             <h3 class="text-xs sm:text-sm font-bold text-textLight">Aaron Gowatch</h3>
             <p class="text-xs text-gold mb-1">Engineering Expert</p>
           </article>
 
-          <article class="team-card p-3 sm:p-4 rounded-xl shadow-xl cursor-pointer hover-lift text-center border transition-all duration-300" style="background-color: var(--primary-bg); border-width: 1px; border-color: var(--primary-bg);"
+          <!-- Bryan Hurlburt -->
+          <article class="team-card p-3 sm:p-4 rounded-xl bg-primary shadow-xl cursor-pointer hover-lift text-center border border-primary/80 transition-all duration-300 hover:border-gold/50"
                    data-name="Bryan Hurlburt"
                    data-title="Strategic Operations"
-                   data-img="https://xtact.github.io/IRNSPR/assets/images/bryan.jpg"
+                   data-img="https://xtact.github.io/irnspr/assets/images/bryan.jpg"
                    data-bio="Bryan brings extensive experience in strategic operations and business development within real estate and investment sectors. His expertise in operational efficiency and market analysis drives Iron Spur's execution excellence and strategic growth initiatives.">
-            <img src="https://xtact.github.io/IRNSPR/assets/images/bryan.jpg" alt="Portrait of Bryan Hurlburt" class="w-16 sm:w-20 h-16 sm:h-20 object-cover rounded-full mx-auto border-2 mb-2 sm:mb-3" style="border-color: var(--gold);" width="96" height="96" loading="lazy">
+            <img src="https://xtact.github.io/irnspr/assets/images/bryan.jpg" alt="Portrait of Bryan Hurlburt" class="w-16 sm:w-20 h-16 sm:h-20 object-cover rounded-full mx-auto border-2 border-gold mb-2 sm:mb-3" width="96" height="96" loading="lazy">
             <h3 class="text-xs sm:text-sm font-bold text-textLight">Bryan Hurlburt</h3>
             <p class="text-xs text-gold mb-1">Operations</p>
           </article>
 
-          <article class="team-card p-3 sm:p-4 rounded-xl shadow-xl cursor-pointer hover-lift text-center border transition-all duration-300" style="background-color: rgba(168, 170, 175, 0.1); border-width: 1px; border-color: var(--silver);"
+          <!-- Tori Fitch -->
+          <article class="team-card p-3 sm:p-4 rounded-xl bg-silver/10 shadow-xl cursor-pointer hover-lift text-center border border-silver/60 transition-all duration-300 hover:border-gold/50"
                    data-name="Tori Fitch"
                    data-title="Investor Relations"
-                   data-img="https://xtact.github.io/IRNSPR/assets/images/tori.jpg"
+                   data-img="https://xtact.github.io/irnspr/assets/images/tori.jpg"
                    data-bio="Tori leads investor relations with a focus on transparent communication and building lasting partnerships. Her dedication to investor success and attention to detail ensures exceptional client experience and satisfaction across all interactions.">
-            <img src="https://xtact.github.io/IRNSPR/assets/images/tori.jpg" alt="Portrait of Tori Fitch" class="w-16 sm:w-20 h-16 sm:h-20 object-cover rounded-full mx-auto border-2 mb-2 sm:mb-3" style="border-color: var(--silver);" width="96" height="96" loading="lazy">
+            <img src="https://xtact.github.io/irnspr/assets/images/tori.jpg" alt="Portrait of Tori Fitch" class="w-16 sm:w-20 h-16 sm:h-20 object-cover rounded-full mx-auto border-2 border-silver mb-2 sm:mb-3" width="96" height="96" loading="lazy">
             <h3 class="text-xs sm:text-sm font-bold text-textLight">Tori Fitch</h3>
             <p class="text-xs text-gold mb-1">Investor Relations</p>
           </article>
@@ -521,10 +427,10 @@
       </div>
     </section>
 
-    <!-- Modal -->
-    <div id="bioModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 hidden" style="background-color: rgba(0, 0, 0, 0.8);">
-      <article class="rounded-2xl shadow-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto border border-silver" style="background-color: rgba(27, 42, 74, 0.95); backdrop-filter: blur(10px);">
-        <div class="p-4 sm:p-6 md:p-8 sticky top-0 border-b border-silver flex justify-between items-center" style="background-color: rgba(27, 42, 74, 0.95);">
+    <!-- Modal for Team Bios -->
+    <div id="bioModal" class="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4 hidden">
+      <article class="bg-secondary/95 rounded-2xl shadow-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto backdrop-blur-sm border border-silver/40" id="modalContent">
+        <div class="p-4 sm:p-6 md:p-8 sticky top-0 bg-secondary/95 border-b border-silver/40 flex justify-between items-center">
           <h2 id="modalName" class="text-xl sm:text-2xl md:text-3xl font-bold text-textLight"></h2>
           <button onclick="closeModal()" class="text-textLight hover:text-gold focus:outline-none transition-colors">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -533,17 +439,17 @@
           </button>
         </div>
         <div class="p-4 sm:p-6 md:p-8">
-          <img id="modalImage" src="" alt="Team Member Photo" class="w-24 sm:w-28 h-24 sm:h-28 object-cover rounded-full mx-auto border-4 mb-4 sm:mb-6" style="border-color: var(--gold);" loading="lazy">
-          <p id="modalTitle" class="text-base sm:text-lg font-semibold text-center mb-4 text-gold">-</p>
+          <img id="modalImage" src="" alt="Team Member Photo" class="w-24 sm:w-28 h-24 sm:h-28 object-cover rounded-full mx-auto border-4 border-gold mb-4 sm:mb-6" loading="lazy">
+          <p id="modalTitle" class="text-gold text-base sm:text-lg font-semibold text-center mb-4">-</p>
           <p id="modalBio" class="text-xs sm:text-sm text-textMuted leading-relaxed whitespace-pre-line"></p>
         </div>
       </article>
     </div>
 
     <!-- Contact CTA -->
-    <section id="contact" class="py-12 sm:py-16 md:py-24 border-t" style="background-color: var(--primary-bg); border-color: var(--silver);">
+    <section id="contact" class="py-12 sm:py-16 md:py-24 bg-primary border-t border-silver/40">
       <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold mb-3 sm:mb-4">
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold mb-3 sm:mb-4 text-textLight">
           Ready to Invest?
         </h2>
         <p class="text-sm sm:text-base md:text-lg text-textMuted mb-6 md:mb-8">
@@ -551,8 +457,7 @@
         </p>
         <a
           href="mailto:invest@ironspur.com"
-          class="inline-block font-semibold py-2 sm:py-3 px-6 sm:px-8 rounded-full text-sm sm:text-base transition duration-300 hover-lift shadow-xl"
-          style="background-color: var(--gold); color: var(--primary-bg);"
+          class="inline-block bg-gold text-primary font-semibold py-2 sm:py-3 px-6 sm:px-8 rounded-full text-sm sm:text-base hover:bg-amber transition duration-300 hover-lift shadow-xl"
         >
           Connect With Our Team
         </a>
@@ -560,117 +465,6 @@
     </section>
   </main>
 
-  <script>
-    // Modal functions
-    function openModal(name, title, img, bio) {
-      document.getElementById('modalName').textContent = name;
-      document.getElementById('modalTitle').textContent = title;
-      document.getElementById('modalImage').src = img;
-      document.getElementById('modalBio').textContent = bio;
-      document.getElementById('bioModal').classList.remove('hidden');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeModal() {
-      document.getElementById('bioModal').classList.add('hidden');
-      document.body.style.overflow = 'auto';
-    }
-
-    // Team card click handlers
-    document.addEventListener('DOMContentLoaded', function() {
-      document.querySelectorAll('.team-card').forEach(card => {
-        card.addEventListener('click', function() {
-          openModal(this.dataset.name, this.dataset.title, this.dataset.img, this.dataset.bio);
-        });
-      });
-
-      // Create donut chart
-      createDonutChart();
-    });
-
-    // Close modal on backdrop click
-    document.getElementById('bioModal').addEventListener('click', function(e) {
-      if (e.target === this) closeModal();
-    });
-
-    // Close modal with Escape key
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') closeModal();
-    });
-
-    // Donut chart
-    function createDonutChart() {
-      const svg = document.getElementById('donutChart');
-      if (!svg) return;
-
-      const data = [
-        { percentage: 45, color: '#A31F34' },
-        { percentage: 35, color: '#D4AF37' },
-        { percentage: 20, color: '#F4A300' }
-      ];
-
-      const center = 100;
-      const radius = 80;
-      const innerRadius = 50;
-      let currentAngle = -Math.PI / 2;
-
-      data.forEach((item, index) => {
-        const sliceAngle = (item.percentage / 100) * 2 * Math.PI;
-        
-        const x1 = center + radius * Math.cos(currentAngle);
-        const y1 = center + radius * Math.sin(currentAngle);
-        const x2 = center + radius * Math.cos(currentAngle + sliceAngle);
-        const y2 = center + radius * Math.sin(currentAngle + sliceAngle);
-        const x3 = center + innerRadius * Math.cos(currentAngle + sliceAngle);
-        const y3 = center + innerRadius * Math.sin(currentAngle + sliceAngle);
-        const x4 = center + innerRadius * Math.cos(currentAngle);
-        const y4 = center + innerRadius * Math.sin(currentAngle);
-
-        const largeArc = sliceAngle > Math.PI ? 1 : 0;
-
-        const pathData = [
-          `M ${x1} ${y1}`,
-          `A ${radius} ${radius} 0 ${largeArc} 1 ${x2} ${y2}`,
-          `L ${x3} ${y3}`,
-          `A ${innerRadius} ${innerRadius} 0 ${largeArc} 0 ${x4} ${y4}`,
-          'Z'
-        ].join(' ');
-
-        const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-        path.setAttribute('d', pathData);
-        path.setAttribute('fill', item.color);
-        path.setAttribute('stroke', '#070F2B');
-        path.setAttribute('stroke-width', '2');
-        path.addEventListener('mouseenter', function() { this.setAttribute('opacity', '1'); });
-        path.addEventListener('mouseleave', function() { this.setAttribute('opacity', '0.9'); });
-        svg.appendChild(path);
-        
-        currentAngle += sliceAngle;
-      });
-
-      // Center circle
-      const centerCircle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-      centerCircle.setAttribute('cx', center);
-      centerCircle.setAttribute('cy', center);
-      centerCircle.setAttribute('r', innerRadius);
-      centerCircle.setAttribute('fill', '#070F2B');
-      centerCircle.setAttribute('stroke', '#D4AF37');
-      centerCircle.setAttribute('stroke-width', '2');
-      svg.appendChild(centerCircle);
-    }
-
-    // Smooth scroll
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        const href = this.getAttribute('href');
-        if (href !== '#' && document.querySelector(href)) {
-          e.preventDefault();
-          document.querySelector(href).scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      });
-    });
-
-    console.log('Iron Spur Equity loaded successfully');
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
